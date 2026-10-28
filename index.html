@@ -1,846 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AD WEB COMIC AGENCY :: DIGITAL INFRASTRUCTURE UNIT</title>
-<meta name="description" content="Ad Web Comic Agency — high-performance, ownership-based websites and applications for global brands. Bangalore, Kochi, Kozhikode.">
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/logo.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/logo.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/logo.png">
-
-<!-- Mobile Browser Theme -->
-<meta name="theme-color" content="#000000">
-
-<!-- Responsive Viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Progressive Web App -->
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Your Website Name">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-/* ============================================================
-   TOKENS — Digital Brutalist Y2K
-   BG:      #050506  (void black)
-   INK:     #EDEDED  (paper white)
-   ACID:    #D6FF3F  (acid lime)
-   MAG:     #FF2EC4  (hot magenta)
-   CYAN:    #35E6FF  (chrome cyan)
-   WARN:    #FFC700  (caution yellow)
-   Display: 'Archivo Black' — blocky, poster-weight, all-caps
-   Body/UI: 'Space Mono'    — terminal monospace, does double duty as data face
-   ============================================================ */
-:root{
-  --bg:#050506;
-  --ink:#ededed;
-  --ink-dim:#8f8f96;
-  --acid:#d6ff3f;
-  --mag:#ff2ec4;
-  --cyan:#35e6ff;
-  --warn:#ffc700;
-  --border:3px;
-  --shadow-off:7px;
-}
-
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Space Mono', monospace;
-  font-size:15px;
-  line-height:1.6;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size:32px 32px;
-}
-
-h1,h2,h3,h4{
-  font-family:'Archivo Black', sans-serif;
-  text-transform:uppercase;
-  letter-spacing:-0.01em;
-  line-height:0.95;
-  margin:0;
-}
-
-a{ color:inherit; }
-button{ font-family:inherit; }
-
-:focus-visible{
-  outline:3px solid var(--acid);
-  outline-offset:3px;
-}
-
-.wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
-.eyebrow{
-  font-size:11px;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:var(--acid);
-  font-weight:700;
-}
-
-/* ---------- CHROME TEXT (signature effect) ---------- */
-.chrome{
-  background:linear-gradient(180deg,#ffffff 0%, #b9b9c2 28%, #6a6a72 46%, #ffffff 52%, #9a9aa2 70%, #ffffff 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  text-shadow:0 0 40px rgba(214,255,63,0.15);
-}
-
-/* ---------- MARQUEE TICKER ---------- */
-.ticker{
-  background:var(--warn);
-  color:#050506;
-  border-bottom:var(--border) solid var(--ink);
-  overflow:hidden;
-  white-space:nowrap;
-  font-weight:700;
-  font-size:12px;
-  letter-spacing:0.08em;
-  position:relative;
-  z-index:70;
-}
-.ticker-track{
-  display:inline-block;
-  padding:8px 0;
-  animation:tickerScroll 22s linear infinite;
-}
-.ticker-track span{ margin:0 28px; }
-@keyframes tickerScroll{
-  0%{ transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
-}
-
-/* ---------- HEADER ---------- */
-header{
-  position:sticky; top:0; z-index:60;
-  background:var(--bg);
-  border-bottom:var(--border) solid var(--ink);
-}
-.nav{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 0;
-}
-.brand{
-  display:flex; align-items:center; gap:12px;
-  text-decoration:none;
-}
-.brand-mark{
-  width:38px; height:38px;
-  background:var(--acid);
-  border:2px solid var(--ink);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Archivo Black', sans-serif;
-  color:#050506;
-  font-size:16px;
-  transform:rotate(-3deg);
-}
-.brand-text{ font-family:'Archivo Black', sans-serif; font-size:15px; letter-spacing:-0.02em; }
-.brand-sub{ font-size:9px; color:var(--ink-dim); letter-spacing:0.25em; }
-
-.nav-links{ display:flex; gap:28px; }
-.nav-links a{
-  text-decoration:none;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:0.1em;
-  font-weight:700;
-  border-bottom:2px solid transparent;
-  padding-bottom:2px;
-}
-.nav-links a:hover{ border-color:var(--acid); color:var(--acid); }
-
-.nav-actions{ display:flex; align-items:center; gap:14px; }
-
-.region-select{
-  position:relative;
-}
-.region-btn{
-  background:transparent;
-  border:2px solid var(--ink-dim);
-  color:var(--ink);
-  padding:8px 12px;
-  font-size:11px;
-  letter-spacing:0.08em;
-  cursor:pointer;
-  display:flex; align-items:center; gap:8px;
-}
-.region-menu{
-  position:absolute; right:0; top:calc(100% + 8px);
-  background:var(--bg);
-  border:2px solid var(--ink);
-  min-width:220px;
-  display:none;
-  z-index:80;
-}
-.region-select.open .region-menu{ display:block; }
-.region-menu button{
-  width:100%; text-align:left;
-  background:transparent; border:none; border-bottom:1px solid #222;
-  color:var(--ink); padding:10px 12px; font-size:11px; cursor:pointer;
-  display:flex; justify-content:space-between;
-}
-.region-menu button:last-child{ border-bottom:none; }
-.region-menu button:hover{ background:var(--mag); color:#050506; }
-
-.btn{
-  display:inline-flex; align-items:center; gap:8px;
-  border:2px solid var(--ink);
-  background:var(--acid);
-  color:#050506;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  font-size:12px;
-  padding:11px 18px;
-  text-decoration:none;
-  cursor:pointer;
-  box-shadow:var(--shadow-off) var(--shadow-off) 0 0 var(--ink);
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.btn:hover{ transform:translate(-3px,-3px); box-shadow:calc(var(--shadow-off) + 3px) calc(var(--shadow-off) + 3px) 0 0 var(--ink); }
-.btn:active{ transform:translate(0,0); box-shadow:2px 2px 0 0 var(--ink); }
-.btn-ghost{ background:transparent; color:var(--ink); box-shadow:var(--shadow-off) var(--shadow-off) 0 0 var(--mag); }
-.btn-cyan{ background:var(--cyan); box-shadow:var(--shadow-off) var(--shadow-off) 0 0 var(--mag); }
-.btn-block{ width:100%; justify-content:center; }
-.btn-sm{ padding:9px 14px; font-size:11px; }
-
-.hamburger{ display:none; background:transparent; border:2px solid var(--ink); color:var(--ink); padding:8px 10px; cursor:pointer; }
-
-/* ---------- HERO ---------- */
-.hero{
-  padding:96px 0 72px;
-  position:relative;
-  border-bottom:var(--border) solid var(--ink);
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background:repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
-  pointer-events:none;
-}
-.hero-tag{
-  display:inline-flex; align-items:center; gap:8px;
-  border:2px solid var(--ink);
-  padding:6px 12px;
-  font-size:11px;
-  letter-spacing:0.15em;
-  margin-bottom:28px;
-  background:#0c0c0f;
-}
-.dot{
-  width:8px; height:8px; border-radius:50%;
-  background:var(--acid);
-  box-shadow:0 0 8px var(--acid);
-  animation:blink 1.4s step-end infinite;
-}
-@keyframes blink{ 50%{ opacity:.25; } }
-
-.hero h1{
-  font-size:clamp(44px, 9vw, 108px);
-  margin-bottom:24px;
-}
-.hero h1 .line2{ -webkit-text-fill-color:var(--ink); color:var(--ink); background:none; }
-
-.hero-lede{
-  max-width:620px;
-  font-size:15px;
-  color:var(--ink-dim);
-  border-left:3px solid var(--mag);
-  padding-left:16px;
-  margin-bottom:36px;
-}
-.hero-cta{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px; }
-
-.hero-stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border:2px solid var(--ink);
-}
-.hero-stat{
-  padding:18px 16px;
-  border-right:2px solid var(--ink);
-}
-.hero-stat:last-child{ border-right:none; }
-.hero-stat .num{ font-family:'Archivo Black',sans-serif; font-size:30px; color:var(--acid); }
-.hero-stat .lbl{ font-size:10px; letter-spacing:0.1em; color:var(--ink-dim); text-transform:uppercase; margin-top:4px; }
-
-/* ---------- SECTION HEADERS ---------- */
-.sec{ padding:80px 0; border-bottom:var(--border) solid var(--ink); }
-.sec-head{
-  display:flex; justify-content:space-between; align-items:flex-end;
-  gap:24px; flex-wrap:wrap;
-  margin-bottom:44px;
-}
-.sec-head h2{ font-size:clamp(32px,5vw,52px); }
-.sec-head p{ max-width:380px; color:var(--ink-dim); font-size:13px; }
-.sec-link{ font-size:12px; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; color:var(--cyan); border-bottom:2px solid var(--cyan); padding-bottom:2px; white-space:nowrap; }
-
-/* ---------- MARQUEE TECH STRIP ---------- */
-.strip{
-  border-bottom:var(--border) solid var(--ink);
-  padding:18px 0;
-  overflow:hidden;
-  background:#0b0b0e;
-}
-.strip-track{
-  display:inline-flex;
-  gap:40px;
-  animation:tickerScroll 26s linear infinite;
-  white-space:nowrap;
-}
-.strip-track span{
-  font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-dim);
-}
-.strip-track span::before{ content:"//"; color:var(--mag); margin-right:8px; }
-
-/* ---------- SERVICE CARDS ---------- */
-.grid-services{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:20px;
-}
-.card{
-  border:2px solid var(--ink);
-  padding:28px;
-  background:#0b0b0e;
-  position:relative;
-}
-.card-flag{ grid-column:span 4; }
-.card-half{ grid-column:span 2; }
-.card-wide{ grid-column:span 4; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
-.card-narrow{ grid-column:span 2; }
-
-.tag-pill{
-  display:inline-block;
-  background:var(--mag);
-  color:#050506;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  padding:4px 10px;
-  margin-bottom:16px;
-}
-.card h3{ font-size:24px; margin-bottom:12px; }
-.card p{ color:var(--ink-dim); font-size:13px; margin-bottom:20px; }
-.check-list{ list-style:none; padding:0; margin:0 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.check-list li{ font-size:12px; display:flex; gap:8px; align-items:center; }
-.check-list li::before{ content:"■"; color:var(--acid); font-size:9px; }
-.arrow-list{ list-style:none; padding:0; margin:0 0 20px; display:grid; gap:8px; }
-.arrow-list li{ font-size:12px; color:var(--ink-dim); }
-.arrow-list li::before{ content:"›"; color:var(--cyan); margin-right:8px; font-weight:700; }
-.card-link{ font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink); text-decoration:none; border-bottom:2px solid var(--acid); }
-
-/* ---------- PRICING ---------- */
-.price-note{ color:var(--ink-dim); font-size:13px; }
-.price-note strong{ color:var(--warn); }
-.grid-pricing{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:0;
-  border:2px solid var(--ink);
-}
-.plan{
-  padding:32px 24px;
-  border-right:2px solid var(--ink);
-  display:flex; flex-direction:column;
-}
-.plan:last-child{ border-right:none; }
-.plan-feat{
-  background:var(--acid);
-  color:#050506;
-  position:relative;
-}
-.plan-badge{
-  position:absolute; top:0; left:0; right:0;
-  background:#050506; color:var(--acid);
-  text-align:center; font-size:10px; font-weight:700; letter-spacing:0.15em;
-  padding:6px 0;
-}
-.plan-feat .plan-title,.plan-feat .plan-price,.plan-feat .plan-item{ color:#050506; }
-.plan-feat{ padding-top:52px; }
-.plan-title{ font-size:12px; text-transform:uppercase; letter-spacing:0.15em; color:var(--ink-dim); margin-bottom:14px; }
-.plan-price{ font-family:'Archivo Black',sans-serif; font-size:34px; margin-bottom:4px; }
-.plan-cycle{ font-size:11px; color:var(--ink-dim); margin-bottom:20px; }
-.plan-feat .plan-cycle{ color:#3a3a3a; }
-.plan-items{ list-style:none; padding:0; margin:0 0 24px; flex:1; display:grid; gap:10px; }
-.plan-items li{ font-size:12px; display:flex; gap:8px; }
-.plan-items li::before{ content:"▸"; color:var(--mag); }
-.plan-feat .plan-items li::before{ color:#050506; }
-
-/* ---------- PROJECTS ---------- */
-.grid-projects{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.proj{
-  text-decoration:none; color:inherit; display:block;
-  border:2px solid var(--ink);
-}
-.proj-thumb{
-  aspect-ratio:16/10;
-  background:
-    repeating-linear-gradient(45deg, #111 0 10px, #161616 10px 20px);
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
-  overflow:hidden;
-}
-.proj-thumb span{
-  font-family:'Archivo Black',sans-serif;
-  font-size:20px;
-  color:var(--ink-dim);
-}
-.proj-thumb .go{
-  position:absolute; inset:0;
-  background:rgba(214,255,63,0.92);
-  color:#050506;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; letter-spacing:0.1em; font-size:12px;
-  opacity:0; transition:opacity .15s ease;
-}
-.proj:hover .go{ opacity:1; }
-.proj-meta{ padding:16px; border-top:2px solid var(--ink); }
-.proj-meta h3{ font-size:16px; margin-bottom:6px; }
-.proj-meta p{ font-size:11px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:0.08em; margin:0; }
-
-/* ---------- CONTACT ---------- */
-.contact-panel{
-  border:2px solid var(--ink);
-  padding:44px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:56px;
-  background:#0b0b0e;
-}
-.contact-info h2{ font-size:34px; margin-bottom:14px; }
-.contact-info > p{ color:var(--ink-dim); font-size:13px; margin-bottom:30px; }
-.info-row{ display:flex; gap:14px; align-items:center; margin-bottom:18px; }
-.info-icon{
-  width:36px; height:36px;
-  border:2px solid var(--ink);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Archivo Black',sans-serif; font-size:14px;
-  background:var(--cyan); color:#050506;
-}
-.info-label{ font-size:9px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:0.15em; }
-.info-value{ font-size:13px; font-weight:700; }
-
-.form-field{
-  width:100%;
-  background:#050506;
-  border:2px solid var(--ink);
-  color:var(--ink);
-  padding:14px;
-  font-family:'Space Mono',monospace;
-  font-size:13px;
-  margin-bottom:14px;
-}
-.form-field:focus{ border-color:var(--acid); outline:none; }
-.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.form-row .form-field{ margin-bottom:0; }
-select.form-field{ appearance:none; }
-textarea.form-field{ resize:vertical; min-height:96px; }
-
-/* ---------- FOOTER ---------- */
-footer{ padding:36px 0 60px; }
-.foot-badges{
-  display:flex; gap:12px; flex-wrap:wrap; margin-bottom:34px;
-}
-.badge{
-  border:2px solid var(--ink-dim);
-  color:var(--ink-dim);
-  font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
-  padding:8px 12px;
-}
-.foot-main{
-  display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;
-  border-top:2px solid var(--ink); padding-top:24px;
-}
-.foot-brand{ font-family:'Archivo Black',sans-serif; font-size:18px; letter-spacing:-0.02em; margin-bottom:6px; }
-.foot-meta{ font-size:11px; color:var(--ink-dim); margin:2px 0; }
-.foot-links{ display:flex; gap:20px; flex-wrap:wrap; }
-.foot-links button{ background:none; border:none; color:var(--ink-dim); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; cursor:pointer; }
-.foot-links button:hover{ color:var(--acid); }
-.counter{
-  display:flex; align-items:center; gap:10px; margin-top:20px;
-  font-size:10px; color:var(--ink-dim); letter-spacing:0.08em; text-transform:uppercase;
-}
-.counter-digits{
-  display:flex; gap:3px;
-}
-.counter-digits span{
-  background:#111; border:1px solid #333; color:var(--acid);
-  font-family:'Space Mono',monospace; font-weight:700;
-  width:18px; text-align:center; padding:3px 0; font-size:12px;
-}
-
-/* ---------- MODALS ---------- */
-.modal{
-  position:fixed; inset:0; z-index:120;
-  display:flex; align-items:center; justify-content:center; padding:20px;
-  opacity:0; visibility:hidden;
-  transition:opacity .2s ease;
-}
-.modal.active{ opacity:1; visibility:visible; }
-.modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,0.85); }
-.modal-box{
-  position:relative;
-  width:100%; max-width:600px; max-height:80vh;
-  background:var(--bg);
-  border:2px solid var(--acid);
-  display:flex; flex-direction:column;
-  box-shadow:12px 12px 0 0 var(--mag);
-}
-.modal-head{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:18px 22px; border-bottom:2px solid var(--ink);
-}
-.modal-head h3{ font-size:18px; }
-.modal-close{ background:none; border:2px solid var(--ink); color:var(--ink); width:30px; height:30px; cursor:pointer; }
-.modal-body{ padding:26px; overflow-y:auto; font-size:13px; color:var(--ink-dim); }
-.modal-body h4{ color:var(--ink); font-size:13px; margin:18px 0 6px; text-transform:uppercase; letter-spacing:0.08em; }
-.modal-body p{ margin:0 0 12px; }
-.modal-body ul,.modal-body ol{ margin:0 0 12px; padding-left:20px; }
-.modal-body li{ margin-bottom:6px; }
-
-/* Mobile menu modal */
-#mobile-menu .modal-box{ max-width:none; width:100%; max-height:none; height:100%; border:none; box-shadow:none; }
-#mobile-menu nav{ display:flex; flex-direction:column; gap:22px; padding:40px 30px; }
-#mobile-menu nav a{ font-family:'Archivo Black',sans-serif; font-size:26px; text-decoration:none; color:var(--ink); text-transform:uppercase; }
-#mobile-menu nav a.accent{ color:var(--acid); }
-
-/* Whitelabel modal highlight boxes */
-.wl-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0; }
-.wl-box{ border:2px solid var(--ink); padding:14px; }
-.wl-box h4{ margin:0 0 6px; color:var(--ink); }
-.wl-box p{ margin:0; font-size:12px; }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px){
-  .nav-links{ display:none; }
-  .hamburger{ display:inline-flex; }
-  .hero-stats{ grid-template-columns:repeat(2,1fr); }
-  .hero-stat:nth-child(2){ border-right:none; }
-  .grid-services{ grid-template-columns:repeat(2,1fr); }
-  .card-flag,.card-half,.card-wide,.card-narrow{ grid-column:span 2; }
-  .grid-pricing{ grid-template-columns:1fr 1fr; }
-  .plan{ border-bottom:2px solid var(--ink); }
-  .grid-projects{ grid-template-columns:1fr; }
-  .contact-panel{ grid-template-columns:1fr; padding:26px; }
-  .form-row{ grid-template-columns:1fr; }
-  .foot-main{ flex-direction:column; align-items:flex-start; }
-}
-@media (max-width: 560px){
-  .grid-services{ grid-template-columns:1fr; }
-  .card-flag,.card-half,.card-wide,.card-narrow{ grid-column:span 1; }
-  .grid-pricing{ grid-template-columns:1fr; }
-  .plan{ border-right:none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Website Design & SEO Services | Ad Web Comic Agency</title>
+  <meta name="description" content="Ad Web Comic Agency builds custom websites, SEO-ready landing pages, web apps, and business digital systems for brands in India, UAE, Saudi Arabia, Kuwait, and global markets.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://www.adwebcomicagency.com/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta name="theme-color" content="#050506">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Custom Website Design & SEO Services | Ad Web Comic Agency">
+  <meta property="og:description" content="High-performance websites and digital infrastructure for growing brands. SEO-ready, mobile-first, and built for conversion.">
+  <meta property="og:url" content="https://www.adwebcomicagency.com/">
+  <meta property="og:site_name" content="Ad Web Comic Agency">
+  <meta property="og:image" content="https://www.adwebcomicagency.com/logo.png">
+  <meta property="og:image:alt" content="Ad Web Comic Agency logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom Website Design & SEO Services | Ad Web Comic Agency">
+  <meta name="twitter:description" content="Custom websites, SEO strategy, mobile apps, and business operations software for modern brands.">
+  <meta name="twitter:image" content="https://www.adwebcomicagency.com/logo.png">
+  <link rel="icon" type="image/png" href="/logo.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/logo.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Ad Web Comic Agency",
+        "url": "https://www.adwebcomicagency.com/",
+        "logo": "https://www.adwebcomicagency.com/logo.png",
+        "description": "Ad Web Comic Agency creates custom websites, SEO-ready landing pages, web apps, and digital systems for businesses in India, the UAE, Saudi Arabia, Kuwait, and global markets.",
+        "email": "adwebcomicagency@gmail.com",
+        "telephone": "+91-9656778508",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://www.instagram.com/_adwebcomicagency._/"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Ad Web Comic Agency",
+        "image": "https://www.adwebcomicagency.com/logo.png",
+        "telephone": "+91-9656778508",
+        "email": "adwebcomicagency@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bangalore, Kochi, Kozhikode",
+          "addressCountry": "IN"
+        },
+        "areaServed": ["IN", "AE", "SA", "KW", "Global"],
+        "url": "https://www.adwebcomicagency.com/",
+        "priceRange": "₹₹"
+      },
+      {
+        "@type": "Service",
+        "serviceType": [
+          "Website Design",
+          "Web Development",
+          "SEO Optimization",
+          "Web Application Development",
+          "Business Software"
+        ],
+        "provider": {
+          "@type": "Organization",
+          "name": "Ad Web Comic Agency"
+        },
+        "areaServed": ["India", "United Arab Emirates", "Saudi Arabia", "Kuwait", "Global"],
+        "description": "Custom business websites, static architecture, SEO strategy, mobile apps, and internal business tools built for speed, ownership, and conversion."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What services does Ad Web Comic Agency provide?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ad Web Comic Agency builds custom websites, SEO-ready landing pages, web apps, static architecture projects, and business software for startups, agencies, and established businesses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you build SEO-friendly websites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every project is structured for technical SEO, clear headings, conversion-focused copy, mobile performance, and clean crawlable HTML that supports search visibility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you work with clients outside India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Ad Web Comic Agency serves businesses in India, the UAE, Saudi Arabia, Kuwait, and global markets with remote consulting and website development support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer white-label website development?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We support agency partnerships with private, white-label delivery and premium production support under NDA."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #050506;
+      --ink: #ededed;
+      --ink-dim: #8f8f96;
+      --acid: #d6ff3f;
+      --mag: #ff2ec4;
+      --cyan: #35e6ff;
+      --warn: #ffc700;
+      --border: 3px;
+      --shadow-off: 7px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Archivo Black', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin: 0;
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    :focus-visible { outline: 3px solid var(--acid); outline-offset: 3px; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--acid); font-weight: 700; }
+    .chrome {
+      background: linear-gradient(180deg, #ffffff 0%, #b9b9c2 28%, #6a6a72 46%, #ffffff 52%, #9a9aa2 70%, #ffffff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(214,255,63,0.15);
+    }
+    .ticker { background: var(--warn); color: #050506; border-bottom: var(--border) solid var(--ink); overflow: hidden; white-space: nowrap; font-weight: 700; font-size: 12px; letter-spacing: 0.08em; position: relative; z-index: 70; }
+    .ticker-track { display: inline-block; padding: 8px 0; animation: tickerScroll 22s linear infinite; }
+    .ticker-track span { margin: 0 28px; }
+    @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    header { position: sticky; top: 0; z-index: 60; background: var(--bg); border-bottom: var(--border) solid var(--ink); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark { width: 38px; height: 38px; background: var(--acid); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; color: #050506; font-size: 16px; transform: rotate(-3deg); }
+    .brand-text { font-family: 'Archivo Black', sans-serif; font-size: 15px; letter-spacing: -0.02em; }
+    .brand-sub { font-size: 9px; color: var(--ink-dim); letter-spacing: 0.25em; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+    .nav-links a:hover { border-color: var(--acid); color: var(--acid); }
+    .nav-actions { display: flex; align-items: center; gap: 14px; }
+    .region-select { position: relative; }
+    .region-btn { background: transparent; border: 2px solid var(--ink-dim); color: var(--ink); padding: 8px 12px; font-size: 11px; letter-spacing: 0.08em; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .region-menu { position: absolute; right: 0; top: calc(100% + 8px); background: var(--bg); border: 2px solid var(--ink); min-width: 220px; display: none; z-index: 80; }
+    .region-select.open .region-menu { display: block; }
+    .region-menu button { width: 100%; text-align: left; background: transparent; border: none; border-bottom: 1px solid #222; color: var(--ink); padding: 10px 12px; font-size: 11px; cursor: pointer; display: flex; justify-content: space-between; }
+    .region-menu button:last-child { border-bottom: none; }
+    .region-menu button:hover { background: var(--mag); color: #050506; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 2px solid var(--ink); background: var(--acid); color: #050506; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; padding: 11px 18px; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-off) var(--shadow-off) 0 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease; }
+    .btn:hover { transform: translate(-3px, -3px); box-shadow: calc(var(--shadow-off) + 3px) calc(var(--shadow-off) + 3px) 0 0 var(--ink); }
+    .btn:active { transform: translate(0,0); box-shadow: 2px 2px 0 0 var(--ink); }
+    .btn-ghost { background: transparent; color: var(--ink); box-shadow: var(--shadow-off) var(--shadow-off) 0 0 var(--mag); }
+    .btn-block { width: 100%; }
+    .btn-sm { padding: 9px 14px; font-size: 11px; }
+    .hamburger { display: none; background: transparent; border: 2px solid var(--ink); color: var(--ink); padding: 8px 10px; cursor: pointer; }
+    .hero { padding: 96px 0 72px; position: relative; border-bottom: var(--border) solid var(--ink); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px); pointer-events: none; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--ink); padding: 6px 12px; font-size: 11px; letter-spacing: 0.15em; margin-bottom: 28px; background: #0c0c0f; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 8px var(--acid); animation: blink 1.4s step-end infinite; }
+    @keyframes blink { 50% { opacity: .25; } }
+    .hero h1 { font-size: clamp(44px, 9vw, 108px); margin-bottom: 18px; }
+    .hero h1 .line2 { -webkit-text-fill-color: var(--ink); color: var(--ink); background: none; }
+    .hero-lede { max-width: 700px; font-size: 15px; color: var(--ink-dim); border-left: 3px solid var(--mag); padding-left: 16px; margin-bottom: 22px; }
+    .seo-answer {
+      max-width: 760px;
+      border: 2px solid var(--cyan);
+      background: rgba(53, 230, 255, 0.08);
+      padding: 18px 20px;
+      margin: 0 0 28px;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .seo-answer strong { color: var(--acid); }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); border: 2px solid var(--ink); }
+    .hero-stat { padding: 18px 16px; border-right: 2px solid var(--ink); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat .num { font-family: 'Archivo Black', sans-serif; font-size: 30px; color: var(--acid); }
+    .hero-stat .lbl { font-size: 10px; letter-spacing: 0.1em; color: var(--ink-dim); text-transform: uppercase; margin-top: 4px; }
+    .sec { padding: 80px 0; border-bottom: var(--border) solid var(--ink); }
+    .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
+    .sec-head h2 { font-size: clamp(32px, 5vw, 52px); }
+    .sec-head p { max-width: 380px; color: var(--ink-dim); font-size: 13px; }
+    .sec-link { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; color: var(--cyan); border-bottom: 2px solid var(--cyan); padding-bottom: 2px; white-space: nowrap; }
+    .strip { border-bottom: var(--border) solid var(--ink); padding: 18px 0; overflow: hidden; background: #0b0b0e; }
+    .strip-track { display: inline-flex; gap: 40px; animation: tickerScroll 26s linear infinite; white-space: nowrap; }
+    .strip-track span { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
+    .strip-track span::before { content: "//"; color: var(--mag); margin-right: 8px; }
+    .grid-services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+    .card { border: 2px solid var(--ink); padding: 28px; background: #0b0b0e; position: relative; }
+    .card-flag { grid-column: span 4; }
+    .card-wide { grid-column: span 4; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .card-narrow { grid-column: span 2; }
+    .tag-pill { display: inline-block; background: var(--mag); color: #050506; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 16px; }
+    .card h3 { font-size: 24px; margin-bottom: 12px; }
+    .card p { color: var(--ink-dim); font-size: 13px; margin-bottom: 20px; }
+    .check-list, .arrow-list { list-style: none; padding: 0; margin: 0 0 20px; }
+    .check-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    .check-list li { font-size: 12px; display: flex; gap: 8px; align-items: center; }
+    .check-list li::before { content: '■'; color: var(--acid); font-size: 9px; }
+    .arrow-list { display: grid; gap: 8px; }
+    .arrow-list li { font-size: 12px; color: var(--ink-dim); }
+    .arrow-list li::before { content: '›'; color: var(--cyan); margin-right: 8px; font-weight: 700; }
+    .card-link { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--acid); }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .faq-item { border: 2px solid var(--ink); background: #0b0b0e; padding: 18px 18px 12px; }
+    .faq-item summary { cursor: pointer; list-style: none; font-size: 15px; font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { font-size: 13px; color: var(--ink-dim); margin: 12px 0 0; }
+    .price-note { color: var(--ink-dim); font-size: 13px; }
+    .price-note strong { color: var(--warn); }
+    .grid-pricing { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 2px solid var(--ink); }
+    .plan { padding: 32px 24px; border-right: 2px solid var(--ink); display: flex; flex-direction: column; }
+    .plan:last-child { border-right: none; }
+    .plan-feat { background: var(--acid); color: #050506; position: relative; }
+    .plan-badge { position: absolute; top: 0; left: 0; right: 0; background: #050506; color: var(--acid); text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; padding: 6px 0; }
+    .plan-feat .plan-title, .plan-feat .plan-price, .plan-feat .plan-item { color: #050506; }
+    .plan-feat { padding-top: 52px; }
+    .plan-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-dim); margin-bottom: 14px; }
+    .plan-price { font-family: 'Archivo Black', sans-serif; font-size: 34px; margin-bottom: 4px; }
+    .plan-cycle { font-size: 11px; color: var(--ink-dim); margin-bottom: 20px; }
+    .plan-feat .plan-cycle { color: #3a3a3a; }
+    .plan-items { list-style: none; padding: 0; margin: 0 0 24px; flex: 1; display: grid; gap: 10px; }
+    .plan-items li { font-size: 12px; display: flex; gap: 8px; }
+    .plan-items li::before { content: '▸'; color: var(--mag); }
+    .plan-feat .plan-items li::before { color: #050506; }
+    .grid-projects { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .proj { text-decoration: none; color: inherit; display: block; border: 2px solid var(--ink); }
+    .proj-thumb { aspect-ratio: 16/10; background: repeating-linear-gradient(45deg, #111 0 10px, #161616 10px 20px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .proj-thumb span { font-family: 'Archivo Black', sans-serif; font-size: 20px; color: var(--ink-dim); }
+    .proj-thumb .go { position: absolute; inset: 0; background: rgba(214,255,63,0.92); color: #050506; display: flex; align-items: center; justify-content: center; font-weight: 700; letter-spacing: 0.1em; font-size: 12px; opacity: 0; transition: opacity .15s ease; }
+    .proj:hover .go { opacity: 1; }
+    .proj-meta { padding: 16px; border-top: 2px solid var(--ink); }
+    .proj-meta h3 { font-size: 16px; margin-bottom: 6px; }
+    .proj-meta p { font-size: 11px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.08em; margin: 0; }
+    .contact-panel { border: 2px solid var(--ink); padding: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; background: #0b0b0e; }
+    .contact-info h2 { font-size: 34px; margin-bottom: 14px; }
+    .contact-info > p { color: var(--ink-dim); font-size: 13px; margin-bottom: 30px; }
+    .info-row { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+    .info-icon { width: 36px; height: 36px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 14px; background: var(--cyan); color: #050506; }
+    .info-label { font-size: 9px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.15em; }
+    .info-value { font-size: 13px; font-weight: 700; }
+    .form-field { width: 100%; background: #050506; border: 2px solid var(--ink); color: var(--ink); padding: 14px; font-size: 13px; margin-bottom: 14px; }
+    .form-field:focus { border-color: var(--acid); outline: none; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-row .form-field { margin-bottom: 0; }
+    select.form-field { appearance: none; }
+    textarea.form-field { resize: vertical; min-height: 96px; }
+    footer { padding: 36px 0 60px; }
+    .foot-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 34px; }
+    .badge { border: 2px solid var(--ink-dim); color: var(--ink-dim); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 12px; }
+    .foot-main { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; border-top: 2px solid var(--ink); padding-top: 24px; }
+    .foot-brand { font-family: 'Archivo Black', sans-serif; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .foot-meta { font-size: 11px; color: var(--ink-dim); margin: 2px 0; }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links button { background: none; border: none; color: var(--ink-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; }
+    .foot-links button:hover { color: var(--acid); }
+    .counter { display: flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 10px; color: var(--ink-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+    .counter-digits { display: flex; gap: 3px; }
+    .counter-digits span { background: #111; border: 1px solid #333; color: var(--acid); font-family: 'Space Mono', monospace; font-weight: 700; width: 18px; text-align: center; padding: 3px 0; font-size: 12px; }
+    .modal { position: fixed; inset: 0; z-index: 120; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity .2s ease; }
+    .modal.active { opacity: 1; visibility: visible; }
+    .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
+    .modal-box { position: relative; width: 100%; max-width: 600px; max-height: 80vh; background: var(--bg); border: 2px solid var(--acid); display: flex; flex-direction: column; box-shadow: 12px 12px 0 0 var(--mag); }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 2px solid var(--ink); }
+    .modal-head h3 { font-size: 18px; }
+    .modal-close { background: none; border: 2px solid var(--ink); color: var(--ink); width: 30px; height: 30px; cursor: pointer; }
+    .modal-body { padding: 26px; overflow-y: auto; font-size: 13px; color: var(--ink-dim); }
+    .modal-body h4 { color: var(--ink); font-size: 13px; margin: 18px 0 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .modal-body p { margin: 0 0 12px; }
+    .modal-body ul, .modal-body ol { margin: 0 0 12px; padding-left: 20px; }
+    .modal-body li { margin-bottom: 6px; }
+    #mobile-menu .modal-box { max-width: none; width: 100%; max-height: none; height: 100%; border: none; box-shadow: none; }
+    #mobile-menu nav { display: flex; flex-direction: column; gap: 22px; padding: 40px 30px; }
+    #mobile-menu nav a { font-family: 'Archivo Black', sans-serif; font-size: 26px; text-decoration: none; color: var(--ink); text-transform: uppercase; }
+    #mobile-menu nav a.accent { color: var(--acid); }
+    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+    .wl-box { border: 2px solid var(--ink); padding: 14px; }
+    .wl-box h4 { margin: 0 0 6px; color: var(--ink); }
+    .wl-box p { margin: 0; font-size: 12px; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: inline-flex; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat:nth-child(2) { border-right: none; }
+      .grid-services { grid-template-columns: repeat(2, 1fr); }
+      .card-flag, .card-wide, .card-narrow { grid-column: span 2; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .grid-pricing { grid-template-columns: 1fr 1fr; }
+      .plan { border-bottom: 2px solid var(--ink); }
+      .grid-projects { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; padding: 26px; }
+      .form-row { grid-template-columns: 1fr; }
+      .foot-main { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .grid-services { grid-template-columns: 1fr; }
+      .card-flag, .card-wide, .card-narrow { grid-column: span 1; }
+      .grid-pricing { grid-template-columns: 1fr; }
+      .plan { border-right: none; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    
-    <span>STATIC ARCHITECTURE · ZERO LOAD TIME</span>
-    <span>MSME-KL-08-0101744 REGISTERED</span>
-  
-    <span>STATIC ARCHITECTURE · ZERO LOAD TIME</span>
-    <span>MSME-KL-08-0101744 REGISTERED</span>
-  </div>
-</div>
-
-<!-- HEADER -->
-<header>
-  <div class="wrap nav">
-    <a href="#" class="brand">
-      <div class="brand-mark">AW</div>
-      <div>
-        <div class="brand-text">AD WEB COMIC</div>
-        <div class="brand-sub">AGENCY UNIT</div>
-      </div>
-    </a>
-
-    <nav class="nav-links">
-      <a href="#services">Expertise</a>
-      <a href="#pricing">Investment</a>
-      <a href="#projects">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav-actions">
-      <div class="region-select" id="regionSelect">
-        <button class="region-btn" id="regionBtn" aria-haspopup="true" aria-expanded="false">
-          <span id="region-label">IND (₹)</span> ▾
-        </button>
-        <div class="region-menu" id="regionMenu">
-          <button data-code="IN"><span>India</span><span>INR</span></button>
-          <button data-code="AE"><span>UAE</span><span>AED</span></button>
-          <button data-code="SA"><span>Saudi Arabia</span><span>SAR</span></button>
-          <button data-code="KW"><span>Kuwait</span><span>KWD</span></button>
-          <button data-code="GLOBAL"><span>Global</span><span>USD</span></button>
-        </div>
-      </div>
-      <a href="#contact" class="btn" style="display:none" id="startBtnDesktop">Start Project</a>
-      <button class="hamburger" onclick="openModal('mobile-menu')" aria-label="Open menu">☰</button>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-tag"><span class="dot"></span> SYSTEM STATUS: ONLINE — TAKING NEW BUILDS</div>
-      <h1>
-        <span class="chrome">DIGITAL</span><br>
-        <span class="line2">INFRASTRUCTURE.</span>
-      </h1>
-      <p class="hero-lede">We hand-engineer high-performance websites and applications. No templates, no bloat — raw, ownership-based systems built to outperform and outlast.</p>
-      <div class="hero-cta">
-        <a href="#pricing" class="btn">View Pricing</a>
-        <a href="#projects" class="btn btn-ghost">View Portfolio</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="num">0.0s</div><div class="lbl">Avg. Load Delay</div></div>
-        <div class="hero-stat"><div class="num">100%</div><div class="lbl">Code Ownership</div></div>
-        <div class="hero-stat"><div class="num">03</div><div class="lbl">Cities Served</div></div>
-        <div class="hero-stat"><div class="num">MSME</div><div class="lbl">Registered Entity</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH STRIP -->
-  <div class="strip">
-    <div class="strip-track">
-      <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Node.js</span><span>AWS</span><span>Google Cloud</span><span>Supabase</span>
-      <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Node.js</span><span>AWS</span><span>Google Cloud</span><span>Supabase</span>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Custom Website Design · SEO-Ready</span>
+      <span>MSME-KL-08-0101744 Registered</span>
+      <span>Custom Website Design · SEO-Ready</span>
+      <span>MSME-KL-08-0101744 Registered</span>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section id="services" class="sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Our<br>Expertise</h2>
-        <p>We architect digital assets that appreciate in value. Pick the format that matches your growth trajectory.</p>
-        <a href="#contact" class="sec-link">Consult an Expert →</a>
-      </div>
-
-      <div class="grid-services">
-        <div class="card card-flag">
-          <span class="tag-pill">Flagship Service</span>
-          <h3>Bespoke Static Architecture</h3>
-          <p>For brands that demand speed and security. We hand-code unique, template-free sites using static site generation. The result loads instantly, ranks higher, and is virtually unhackable.</p>
-          <ul class="check-list">
-            <li>Zero Load Time</li>
-            <li>100% Ownership</li>
-            <li>Custom Structure</li>
-            <li>SEO Native</li>
-          </ul>
-          <a href="#contact" class="card-link">Request Proposal</a>
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="brand" aria-label="Ad Web Comic Agency home">
+        <div class="brand-mark">AW</div>
+        <div>
+          <div class="brand-text">AD WEB COMIC</div>
+          <div class="brand-sub">AGENCY UNIT</div>
         </div>
+      </a>
 
-        <div class="card card-narrow">
-          <h3>Web &amp; Mobile Apps</h3>
-          <p>Progressive Web Apps and native Android builds — bridging web reach with native performance.</p>
-          <ul class="arrow-list">
-            <li>Offline Capability</li>
-            <li>Push Notifications</li>
-            <li>Play Store Launch</li>
-          </ul>
-        </div>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#services">Expertise</a>
+        <a href="#pricing">Investment</a>
+        <a href="#projects">Work</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        <div class="card card-narrow">
-          <h3>Business OS</h3>
-          <p>Internal tools that streamline operations — accounting, inventory, GST invoicing, POS, integrated into your workflow.</p>
-          <a href="#contact" class="card-link">Explore Solutions</a>
-        </div>
-
-        <div class="card card-wide">
-          <div style="flex:1;min-width:220px;">
-            <span class="tag-pill" style="background:var(--cyan)">For Agencies</span>
-            <h3 style="margin-top:0">White-Label Partnership</h3>
-            <p style="margin-bottom:0">Scale your agency without scaling headcount. We work as your silent production house — premium code, your brand, strict NDA.</p>
+      <div class="nav-actions">
+        <div class="region-select" id="regionSelect">
+          <button class="region-btn" id="regionBtn" aria-haspopup="true" aria-expanded="false">
+            <span id="region-label">IND (₹)</span> ▾
+          </button>
+          <div class="region-menu" id="regionMenu">
+            <button data-code="IN"><span>India</span><span>INR</span></button>
+            <button data-code="AE"><span>UAE</span><span>AED</span></button>
+            <button data-code="SA"><span>Saudi Arabia</span><span>SAR</span></button>
+            <button data-code="KW"><span>Kuwait</span><span>KWD</span></button>
+            <button data-code="GLOBAL"><span>Global</span><span>USD</span></button>
           </div>
-          <button class="btn btn-sm" onclick="openModal('whitelabel-modal')">Partner With Us</button>
         </div>
+        <a href="#contact" class="btn" style="display:none" id="startBtnDesktop">Start Project</a>
+        <button class="hamburger" onclick="openModal('mobile-menu')" aria-label="Open menu">☰</button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- PRICING -->
-  <section id="pricing" class="sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Investment<br>Plans</h2>
-        <p class="price-note">Transparent pricing for ownership-based deliverables. Displayed in <strong id="currency-display">INR (₹)</strong>.</p>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-tag"><span class="dot"></span> SYSTEM STATUS: ONLINE — TAKING NEW BUILDS</div>
+        <h1 id="hero-title">
+          <span class="chrome">DIGITAL</span><br>
+          <span class="line2">INFRASTRUCTURE.</span>
+        </h1>
+        <p class="hero-lede">Ad Web Comic Agency builds fast, conversion-focused websites, mobile apps, and business systems for brands that want stronger search visibility, better customer experience, and reliable digital growth.</p>
+        <div class="seo-answer">
+          <strong>Direct answer:</strong> We design and develop custom business websites, SEO-ready landing pages, and web apps that help businesses rank higher, load faster, and convert more visitors into leads.
+        </div>
+        <div class="hero-cta">
+          <a href="#pricing" class="btn">View Pricing</a>
+          <a href="#projects" class="btn btn-ghost">View Portfolio</a>
+        </div>
+        <div class="hero-stats" aria-label="Key agency statistics">
+          <div class="hero-stat"><div class="num">0.0s</div><div class="lbl">Avg. Load Delay</div></div>
+          <div class="hero-stat"><div class="num">100%</div><div class="lbl">Code Ownership</div></div>
+          <div class="hero-stat"><div class="num">03</div><div class="lbl">Cities Served</div></div>
+          <div class="hero-stat"><div class="num">MSME</div><div class="lbl">Registered Entity</div></div>
+        </div>
       </div>
+    </section>
 
-      <div class="grid-pricing">
-        <div class="plan">
-          <div class="plan-title">Starter</div>
-          <div class="plan-price price-value" data-inr="22,000" data-aed="1,200" data-sar="1,250" data-kwd="100" data-usd="299">₹22,000</div>
-          <div class="plan-cycle">One-time payment +</div>
-          <ul class="plan-items">
-            <li>5-Page Static Site</li>
-            <li>Responsive Layout</li>
-            <li>Basic SEO Setup</li>
-            <li>3 Months Support</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-block btn-sm">Select Plan</a>
-        </div>
-
-        <div class="plan plan-feat">
-          <div class="plan-badge">Recommended</div>
-          <div class="plan-title">Growth</div>
-          <div class="plan-price">Custom</div>
-          <div class="plan-cycle">Tailored quote</div>
-          <ul class="plan-items">
-            <li>Bespoke UI/UX Design</li>
-            <li>Advanced Animations</li>
-            <li>CMS Integration</li>
-            <li>6 Months Support</li>
-          </ul>
-          <a href="#contact" class="btn btn-block btn-sm" style="box-shadow:7px 7px 0 0 #050506;">Get Quote</a>
-        </div>
-
-        <div class="plan">
-          <div class="plan-title">Enterprise</div>
-          <div class="plan-price price-value" data-inr="65,000" data-aed="3,500" data-sar="3,600" data-kwd="300" data-usd="899">₹65,000</div>
-          <div class="plan-cycle">Project based +</div>
-          <ul class="plan-items">
-            <li>Web + Mobile App</li>
-            <li>Full Backend Logic</li>
-            <li>Custom APIs</li>
-            <li>12 Months Priority Support</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-block btn-sm">Contact Sales</a>
-        </div>
-
-        <div class="plan">
-          <div class="plan-title">Maintenance</div>
-          <div class="plan-price price-value" data-inr="6,000" data-aed="300" data-sar="350" data-kwd="25" data-usd="99">₹6,000</div>
-          <div class="plan-cycle">Annual contract /yr</div>
-          <ul class="plan-items">
-            <li>Hosting &amp; SSL</li>
-            <li>Security Patching</li>
-            <li>5 Content Updates/mo</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-block btn-sm">Subscribe</a>
-        </div>
+    <div class="strip" aria-label="Technology stack">
+      <div class="strip-track">
+        <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Node.js</span><span>AWS</span><span>Google Cloud</span><span>Supabase</span>
+        <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Node.js</span><span>AWS</span><span>Google Cloud</span><span>Supabase</span>
       </div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Recent<br>Deliverables</h2>
+    <section id="services" class="sec" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="services-title">Our<br>Expertise</h2>
+          <p>We build digital assets that improve visibility, trust, and business performance across web, mobile, and internal operations.</p>
+          <a href="#contact" class="sec-link">Consult an Expert →</a>
+        </div>
+
+        <div class="grid-services">
+          <div class="card card-flag">
+            <span class="tag-pill">Flagship Service</span>
+            <h3>Bespoke Static Architecture</h3>
+            <p>For brands that need lightning-fast load speed, clean structure, and better search crawlability. We craft custom, template-free digital experiences that perform and scale.</p>
+            <ul class="check-list">
+              <li>Zero Load Time</li>
+              <li>100% Ownership</li>
+              <li>Custom Structure</li>
+              <li>SEO Native</li>
+            </ul>
+            <a href="#contact" class="card-link">Request Proposal</a>
+          </div>
+
+          <div class="card card-narrow">
+            <h3>Web &amp; Mobile Apps</h3>
+            <p>Progressive web apps and high-conversion product interfaces for startups and established businesses.</p>
+            <ul class="arrow-list">
+              <li>Offline Capability</li>
+              <li>Push Notifications</li>
+              <li>Play Store Launch</li>
+            </ul>
+          </div>
+
+          <div class="card card-narrow">
+            <h3>Business OS</h3>
+            <p>Internal systems for accounting, inventory, GST invoicing, and operations management.</p>
+            <a href="#contact" class="card-link">Explore Solutions</a>
+          </div>
+
+          <div class="card card-wide">
+            <div style="flex:1;min-width:220px;">
+              <span class="tag-pill" style="background: var(--cyan);">For Agencies</span>
+              <h3 style="margin-top:0">White-Label Partnership</h3>
+              <p style="margin-bottom:0">Scale your agency without scaling headcount. We provide premium production support under your brand and strict NDA.</p>
+            </div>
+            <button class="btn btn-sm" onclick="openModal('whitelabel-modal')">Partner With Us</button>
+          </div>
+        </div>
       </div>
-      <div class="grid-projects">
-        <a href="https://globalbestuae.com/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>GLOBAL BEST UAE</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Global Best UAE</h3><p>Corporate · Web Development</p></div>
-        </a>
-        <a href="https://www.nylainteriors.in/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>NYLA INTERIORS</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Nyla Interiors</h3><p>Interior Design · Architecture</p></div>
-        </a>
-        <a href="https://www.manaveg.com/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>MANA VEG</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Mana Veg</h3><p>Restaurant · Catering &amp; Food Services</p></div>
-        </a>
-        <a href="https://www.welcomeproperties.in/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>WELCOME PROPERTIES</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Welcome Properties</h3><p>Real Estate · Property Solutions</p></div>
-        </a>
-        <a href="https://www.idcinteriorstudio.com/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>IDC INTERIOR STUDIO</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>IDC Interior Studio</h3><p>Interior Design · Architecture</p></div>
-        </a>
-        <a href="https://adatelier.framer.website/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>AD ATELIER</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Ad Atelier</h3><p>Creative Agency · Branding</p></div>
-        </a>
-        <a href="https://acecsaudi.com/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>ACEC SAUDI</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>ACEC Saudi</h3><p>Business · Static Architecture</p></div>
-        </a>
-        <a href="https://welcomemart.shop/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>WELCOME MART</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Welcome Mart</h3><p>E-Commerce · PWA</p></div>
-        </a>
-        <a href="https://www.drsajinidentalclinic.com/" target="_blank" rel="noopener" class="proj">
-          <div class="proj-thumb"><span>DR. SAJINI</span><div class="go">VIEW LIVE →</div></div>
-          <div class="proj-meta"><h3>Dr. Sajini Dental Clinic</h3><p>Healthcare · Dental Care</p></div>
-        </a>
+    </section>
+
+    <section id="faq" class="sec" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="faq-title">FAQs</h2>
+          <p>Common questions about our website development, SEO, and agency partnership services.</p>
+        </div>
+        <div class="faq-grid">
+          <details class="faq-item" open>
+            <summary>What does Ad Web Comic Agency do?</summary>
+            <p>We design and develop custom business websites, landing pages, web apps, and internal software with a focus on performance, SEO, and conversion outcomes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you build SEO-friendly websites?</summary>
+            <p>Yes. We structure content for crawlability, page titles, heading hierarchy, internal linking, schema markup, and mobile performance to support visibility in search engines.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I get a custom site instead of a template?</summary>
+            <p>Absolutely. Every project is tailored to your brand, business goals, and user journey rather than using a generic template framework.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you work with businesses outside India?</summary>
+            <p>Yes. We work with businesses across India, UAE, Saudi Arabia, Kuwait, and international markets through remote collaboration and custom digital delivery.</p>
+          </details>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="sec" style="border-bottom:none;">
-    <div class="wrap">
-      <div class="contact-panel">
-        <div class="contact-info">
-          <h2>Initialize<br>Project</h2>
-          <p>Brief us on your requirements. Our team typically responds within 4 business hours.</p>
+    <section id="pricing" class="sec" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="pricing-title">Investment<br>Plans</h2>
+          <p class="price-note">Transparent pricing for ownership-based deliverables. Displayed in <strong id="currency-display">INR (₹)</strong>.</p>
+        </div>
 
-          <div class="info-row">
-            <div class="info-icon">☎</div>
-            <div>
-              <div class="info-label">Inquiries</div>
-              <div class="info-value">+91 9656778508</div>
+        <div class="grid-pricing">
+          <div class="plan">
+            <div class="plan-title">Starter</div>
+            <div class="plan-price price-value" data-inr="22,000" data-aed="1,200" data-sar="1,250" data-kwd="100" data-usd="299">₹22,000</div>
+            <div class="plan-cycle">One-time payment +</div>
+            <ul class="plan-items">
+              <li>5-Page Static Site</li>
+              <li>Responsive Layout</li>
+              <li>Basic SEO Setup</li>
+              <li>3 Months Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost btn-block btn-sm">Select Plan</a>
+          </div>
+
+          <div class="plan plan-feat">
+            <div class="plan-badge">Recommended</div>
+            <div class="plan-title">Growth</div>
+            <div class="plan-price">Custom</div>
+            <div class="plan-cycle">Tailored quote</div>
+            <ul class="plan-items">
+              <li>Bespoke UI/UX Design</li>
+              <li>Advanced Animations</li>
+              <li>CMS Integration</li>
+              <li>6 Months Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-block btn-sm" style="box-shadow:7px 7px 0 0 #050506;">Get Quote</a>
+          </div>
+
+          <div class="plan">
+            <div class="plan-title">Enterprise</div>
+            <div class="plan-price price-value" data-inr="65,000" data-aed="3,500" data-sar="3,600" data-kwd="300" data-usd="899">₹65,000</div>
+            <div class="plan-cycle">Project based +</div>
+            <ul class="plan-items">
+              <li>Web + Mobile App</li>
+              <li>Full Backend Logic</li>
+              <li>Custom APIs</li>
+              <li>12 Months Priority Support</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost btn-block btn-sm">Contact Sales</a>
+          </div>
+
+          <div class="plan">
+            <div class="plan-title">Maintenance</div>
+            <div class="plan-price price-value" data-inr="6,000" data-aed="300" data-sar="350" data-kwd="25" data-usd="99">₹6,000</div>
+            <div class="plan-cycle">Annual contract /yr</div>
+            <ul class="plan-items">
+              <li>Hosting &amp; SSL</li>
+              <li>Security Patching</li>
+              <li>5 Content Updates/mo</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost btn-block btn-sm">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="sec" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="projects-title">Recent<br>Deliverables</h2>
+        </div>
+        <div class="grid-projects">
+          <a href="https://globalbestuae.com/" target="_blank" rel="noopener" class="proj" aria-label="View Global Best UAE project">
+            <div class="proj-thumb"><span>GLOBAL BEST UAE</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Global Best UAE</h3><p>Corporate · Web Development</p></div>
+          </a>
+          <a href="https://www.nylainteriors.in/" target="_blank" rel="noopener" class="proj" aria-label="View Nyla Interiors project">
+            <div class="proj-thumb"><span>NYLA INTERIORS</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Nyla Interiors</h3><p>Interior Design · Architecture</p></div>
+          </a>
+          <a href="https://www.manaveg.com/" target="_blank" rel="noopener" class="proj" aria-label="View Mana Veg project">
+            <div class="proj-thumb"><span>MANA VEG</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Mana Veg</h3><p>Restaurant · Catering &amp; Food Services</p></div>
+          </a>
+          <a href="https://www.welcomeproperties.in/" target="_blank" rel="noopener" class="proj" aria-label="View Welcome Properties project">
+            <div class="proj-thumb"><span>WELCOME PROPERTIES</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Welcome Properties</h3><p>Real Estate · Property Solutions</p></div>
+          </a>
+          <a href="https://www.idcinteriorstudio.com/" target="_blank" rel="noopener" class="proj" aria-label="View IDC Interior Studio project">
+            <div class="proj-thumb"><span>IDC INTERIOR STUDIO</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>IDC Interior Studio</h3><p>Interior Design · Architecture</p></div>
+          </a>
+          <a href="https://adatelier.framer.website/" target="_blank" rel="noopener" class="proj" aria-label="View Ad Atelier project">
+            <div class="proj-thumb"><span>AD ATELIER</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Ad Atelier</h3><p>Creative Agency · Branding</p></div>
+          </a>
+          <a href="https://acecsaudi.com/" target="_blank" rel="noopener" class="proj" aria-label="View ACEC Saudi project">
+            <div class="proj-thumb"><span>ACEC SAUDI</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>ACEC Saudi</h3><p>Business · Static Architecture</p></div>
+          </a>
+          <a href="https://welcomemart.shop/" target="_blank" rel="noopener" class="proj" aria-label="View Welcome Mart project">
+            <div class="proj-thumb"><span>WELCOME MART</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Welcome Mart</h3><p>E-Commerce · PWA</p></div>
+          </a>
+          <a href="https://www.drsajinidentalclinic.com/" target="_blank" rel="noopener" class="proj" aria-label="View Dr. Sajini Dental Clinic project">
+            <div class="proj-thumb"><span>DR. SAJINI</span><div class="go">VIEW LIVE →</div></div>
+            <div class="proj-meta"><h3>Dr. Sajini Dental Clinic</h3><p>Healthcare · Dental Care</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="sec" style="border-bottom:none;" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div class="contact-info">
+            <h2 id="contact-title">Initialize<br>Project</h2>
+            <p>Share your project goals and we will respond within 4 business hours with a clear scope and pricing direction.</p>
+
+            <div class="info-row">
+              <div class="info-icon">☎</div>
+              <div>
+                <div class="info-label">Inquiries</div>
+                <div class="info-value">+91 9656778508</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">@</div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value">adwebcomicagency@gmail.com</div>
+              </div>
             </div>
           </div>
-          <div class="info-row">
-            <div class="info-icon">@</div>
-            <div>
-              <div class="info-label">Email</div>
-              <div class="info-value">adwebcomicagency@gmail.com</div>
+
+          <form onsubmit="return handleContactSubmit(event)">
+            <div class="form-row" style="margin-bottom:14px;">
+              <input type="text" placeholder="Name" class="form-field" required aria-label="Name">
+              <input type="email" placeholder="Email" class="form-field" required aria-label="Email">
             </div>
-          </div>
+            <select class="form-field" aria-label="Service requirement">
+              <option>Select Service Requirement</option>
+              <option>Static Website Development</option>
+              <option>Mobile Application</option>
+              <option>Business Software</option>
+              <option>White Label Partnership</option>
+            </select>
+            <textarea placeholder="Project details..." class="form-field" aria-label="Project details"></textarea>
+            <button type="submit" class="btn btn-block">Send Request</button>
+          </form>
         </div>
-
-        <form onsubmit="return handleContactSubmit(event)">
-          <div class="form-row" style="margin-bottom:14px;">
-            <input type="text" placeholder="Name" class="form-field" required>
-            <input type="email" placeholder="Email" class="form-field" required>
-          </div>
-          <select class="form-field">
-            <option>Select Service Requirement</option>
-            <option>Static Website Development</option>
-            <option>Mobile Application</option>
-            <option>Business Software</option>
-            <option>White Label Partnership</option>
-          </select>
-          <textarea placeholder="Project details..." class="form-field"></textarea>
-          <button type="submit" class="btn btn-block">Send Request</button>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="foot-badges">
@@ -870,175 +676,172 @@ footer{ padding:36px 0 60px; }
       </div>
     </div>
   </footer>
-</main>
 
-<!-- MODALS -->
-<div id="privacy-modal" class="modal">
-  <div class="modal-backdrop" onclick="closeModal('privacy-modal')"></div>
-  <div class="modal-box">
-    <div class="modal-head"><h3>Privacy Policy</h3><button class="modal-close" onclick="closeModal('privacy-modal')">×</button></div>
-    <div class="modal-body">
-      <p><strong style="color:var(--ink)">Effective Date:</strong> January 1, 2024</p>
-      <p>Ad Web Comic Agency is committed to protecting your personal data. We collect minimal information required to provide our services.</p>
-      <h4>Data Collection</h4>
-      <p>We collect identity data (name) and contact data (email, phone) solely for communication and invoicing.</p>
-      <h4>Data Usage</h4>
-      <p>Your data is never sold. It is used exclusively to fulfill service contracts and comply with local tax regulations.</p>
-    </div>
-  </div>
-</div>
-
-<div id="whitelabel-modal" class="modal">
-  <div class="modal-backdrop" onclick="closeModal('whitelabel-modal')"></div>
-  <div class="modal-box">
-    <div class="modal-head"><h3>Agency Partnership Program</h3><button class="modal-close" onclick="closeModal('whitelabel-modal')">×</button></div>
-    <div class="modal-body">
-      <p style="color:var(--ink);font-size:14px;">Expand your service offerings without expanding your team.</p>
-      <div class="wl-grid">
-        <div class="wl-box"><h4>Invisible Partner</h4><p>We work under strict NDA. Your client never knows we exist.</p></div>
-        <div class="wl-box"><h4>Wholesale Rates</h4><p>Partner-only pricing allowing for significant markup margins.</p></div>
+  <div id="privacy-modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal('privacy-modal')"></div>
+    <div class="modal-box">
+      <div class="modal-head"><h3>Privacy Policy</h3><button class="modal-close" onclick="closeModal('privacy-modal')">×</button></div>
+      <div class="modal-body">
+        <p><strong style="color:var(--ink)">Effective Date:</strong> January 1, 2024</p>
+        <p>Ad Web Comic Agency is committed to protecting your personal data and collecting only what is necessary to deliver our services.</p>
+        <h4>Data Collection</h4>
+        <p>We collect identity data (name) and contact information (email, phone) for communication and invoicing.</p>
+        <h4>Data Usage</h4>
+        <p>Your data is never sold and is used only to fulfill service contracts and comply with applicable regulations.</p>
       </div>
-      <a href="#contact" onclick="closeModal('whitelabel-modal')" class="btn btn-block">Apply for Partnership</a>
     </div>
   </div>
-</div>
 
-<div id="refund-modal" class="modal">
-  <div class="modal-backdrop" onclick="closeModal('refund-modal')"></div>
-  <div class="modal-box">
-    <div class="modal-head"><h3>Refund Policy</h3><button class="modal-close" onclick="closeModal('refund-modal')">×</button></div>
-    <div class="modal-body">
-      <p>Due to the custom nature of our code and design work, our refund policy is as follows:</p>
-      <ul>
-        <li><strong style="color:var(--ink)">Pre-Development:</strong> 90% refund if cancelled within 24 hours of booking.</li>
-        <li><strong style="color:var(--ink)">During Development:</strong> No refunds on advance payments once the project timeline has started.</li>
-        <li><strong style="color:var(--ink)">Agency Fault:</strong> 100% refund if we fail to deliver the agreed scope.</li>
-      </ul>
+  <div id="whitelabel-modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal('whitelabel-modal')"></div>
+    <div class="modal-box">
+      <div class="modal-head"><h3>Agency Partnership Program</h3><button class="modal-close" onclick="closeModal('whitelabel-modal')">×</button></div>
+      <div class="modal-body">
+        <p style="color:var(--ink);font-size:14px;">Expand your service offerings without expanding your team.</p>
+        <div class="wl-grid">
+          <div class="wl-box"><h4>Invisible Partner</h4><p>We work under strict NDA and remain behind the scenes.</p></div>
+          <div class="wl-box"><h4>Wholesale Rates</h4><p>Partner-only pricing designed for healthy margins and scale.</p></div>
+        </div>
+        <a href="#contact" onclick="closeModal('whitelabel-modal')" class="btn btn-block">Apply for Partnership</a>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="terms-modal" class="modal">
-  <div class="modal-backdrop" onclick="closeModal('terms-modal')"></div>
-  <div class="modal-box">
-    <div class="modal-head"><h3>Terms of Service</h3><button class="modal-close" onclick="closeModal('terms-modal')">×</button></div>
-    <div class="modal-body">
-      <p>By engaging with Ad Web Comic Agency, you agree to:</p>
-      <ol>
-        <li><strong style="color:var(--ink)">Payments:</strong> 50% advance is mandatory to commence work. Balance is due upon completion.</li>
-        <li><strong style="color:var(--ink)">Content:</strong> Client is responsible for providing text and images on time.</li>
-        <li><strong style="color:var(--ink)">Ownership:</strong> Code ownership transfers to client only after full payment.</li>
-      </ol>
+  <div id="refund-modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal('refund-modal')"></div>
+    <div class="modal-box">
+      <div class="modal-head"><h3>Refund Policy</h3><button class="modal-close" onclick="closeModal('refund-modal')">×</button></div>
+      <div class="modal-body">
+        <p>Due to the custom nature of our work, the refund policy is as follows:</p>
+        <ul>
+          <li><strong style="color:var(--ink)">Pre-Development:</strong> 90% refund if cancelled within 24 hours of booking.</li>
+          <li><strong style="color:var(--ink)">During Development:</strong> No refunds on advance payments once the project timeline has started.</li>
+          <li><strong style="color:var(--ink)">Agency Fault:</strong> 100% refund if we fail to deliver the agreed scope.</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="mobile-menu" class="modal">
-  <div class="modal-backdrop" onclick="closeModal('mobile-menu')"></div>
-  <div class="modal-box">
-    <div class="modal-head"><h3>Menu</h3><button class="modal-close" onclick="closeModal('mobile-menu')">×</button></div>
-    <nav>
-      <a href="#services" onclick="closeModal('mobile-menu')">Expertise</a>
-      <a href="#pricing" onclick="closeModal('mobile-menu')">Investment</a>
-      <a href="#projects" onclick="closeModal('mobile-menu')">Work</a>
-      <a href="#contact" onclick="closeModal('mobile-menu')" class="accent">Contact Us</a>
-    </nav>
+  <div id="terms-modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal('terms-modal')"></div>
+    <div class="modal-box">
+      <div class="modal-head"><h3>Terms of Service</h3><button class="modal-close" onclick="closeModal('terms-modal')">×</button></div>
+      <div class="modal-body">
+        <p>By engaging with Ad Web Comic Agency, you agree to:</p>
+        <ol>
+          <li><strong style="color:var(--ink)">Payments:</strong> 50% advance is mandatory to commence work. Balance is due upon completion.</li>
+          <li><strong style="color:var(--ink)">Content:</strong> Client is responsible for providing text and images on time.</li>
+          <li><strong style="color:var(--ink)">Ownership:</strong> Code ownership transfers after full payment.</li>
+        </ol>
+      </div>
+    </div>
   </div>
-</div>
 
-<script>
-// ---- Modal logic ----
-function openModal(id){
-  document.getElementById(id).classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(id){
-  document.getElementById(id).classList.remove('active');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){
-    document.querySelectorAll('.modal.active').forEach(function(m){ closeModal(m.id); });
-  }
-});
+  <div id="mobile-menu" class="modal">
+    <div class="modal-backdrop" onclick="closeModal('mobile-menu')"></div>
+    <div class="modal-box">
+      <div class="modal-head"><h3>Menu</h3><button class="modal-close" onclick="closeModal('mobile-menu')">×</button></div>
+      <nav>
+        <a href="#services" onclick="closeModal('mobile-menu')">Expertise</a>
+        <a href="#pricing" onclick="closeModal('mobile-menu')">Investment</a>
+        <a href="#projects" onclick="closeModal('mobile-menu')">Work</a>
+        <a href="#faq" onclick="closeModal('mobile-menu')">FAQ</a>
+        <a href="#contact" onclick="closeModal('mobile-menu')" class="accent">Contact Us</a>
+      </nav>
+    </div>
+  </div>
 
-// ---- Region selector ----
-const regionBtn = document.getElementById('regionBtn');
-const regionSelect = document.getElementById('regionSelect');
-const regionLabel = document.getElementById('region-label');
-const currencyDisplay = document.getElementById('currency-display');
-const priceValues = document.querySelectorAll('.price-value');
-const currencyMeta = {
-  IN: { label: 'INR (₹)', symbol: '₹' },
-  AE: { label: 'AED (د.إ)', symbol: 'د.إ' },
-  SA: { label: 'SAR (﷼)', symbol: '﷼' },
-  KW: { label: 'KWD (د.ك)', symbol: 'د.ك' },
-  GLOBAL: { label: 'USD ($)', symbol: '$' }
-};
-regionBtn.addEventListener('click', () => {
-  const isOpen = regionSelect.classList.contains('open');
-  regionSelect.classList.toggle('open', !isOpen);
-  regionBtn.setAttribute('aria-expanded', String(!isOpen));
-});
-
-Array.from(document.querySelectorAll('.region-menu button')).forEach(button => {
-  button.addEventListener('click', () => {
-    const code = button.dataset.code;
-    const meta = currencyMeta[code];
-    regionLabel.textContent = `${code} (${meta.symbol})`;
-    currencyDisplay.textContent = meta.label;
-    priceValues.forEach(el => {
-      const value = el.dataset[code.toLowerCase()];
-      if (value) el.textContent = code === 'IN' ? `₹${value}` : `${value}`;
-      if (code === 'GLOBAL') el.textContent = `$${el.dataset.usd}`;
-      if (code === 'AE') el.textContent = `${el.dataset.aed}`;
-      if (code === 'SA') el.textContent = `${el.dataset.sar}`;
-      if (code === 'KW') el.textContent = `${el.dataset.kwd}`;
+  <script>
+    function openModal(id){
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id){
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        document.querySelectorAll('.modal.active').forEach(function(m){ closeModal(m.id); });
+      }
     });
-    regionSelect.classList.remove('open');
-    regionBtn.setAttribute('aria-expanded', 'false');
-  });
-});
 
-document.addEventListener('click', function(e){
-  if(!regionSelect.contains(e.target)){
-    regionSelect.classList.remove('open');
-    regionBtn.setAttribute('aria-expanded','false');
-  }
-});
+    const regionBtn = document.getElementById('regionBtn');
+    const regionSelect = document.getElementById('regionSelect');
+    const regionLabel = document.getElementById('region-label');
+    const currencyDisplay = document.getElementById('currency-display');
+    const priceValues = document.querySelectorAll('.price-value');
+    const currencyMeta = {
+      IN: { label: 'INR (₹)', symbol: '₹' },
+      AE: { label: 'AED (د.إ)', symbol: 'د.إ' },
+      SA: { label: 'SAR (﷼)', symbol: '﷼' },
+      KW: { label: 'KWD (د.ك)', symbol: 'د.ك' },
+      GLOBAL: { label: 'USD ($)', symbol: '$' }
+    };
 
-// ---- Counter ----
-const hitCounter = document.getElementById('hitCounter');
-function renderCounter(value){
-  const digits = Array.from(String(value), Number);
-  hitCounter.innerHTML = '';
-  digits.forEach(d => {
-    const span = document.createElement('span');
-    span.textContent = d;
-    hitCounter.appendChild(span);
-  });
-}
-let counterValue = 1742;
-setInterval(() => {
-  counterValue += 1;
-  renderCounter(counterValue);
-}, 4200);
-renderCounter(counterValue);
+    regionBtn.addEventListener('click', () => {
+      const isOpen = regionSelect.classList.contains('open');
+      regionSelect.classList.toggle('open', !isOpen);
+      regionBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
 
-// ---- Contact form ----
-function handleContactSubmit(event){
-  event.preventDefault();
-  const btn = event.target.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Request Sent';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = original;
-    btn.disabled = false;
-    event.target.reset();
-  }, 1800);
-  return false;
-}
-</script>
+    Array.from(document.querySelectorAll('.region-menu button')).forEach(button => {
+      button.addEventListener('click', () => {
+        const code = button.dataset.code;
+        const meta = currencyMeta[code];
+        regionLabel.textContent = `${code} (${meta.symbol})`;
+        currencyDisplay.textContent = meta.label;
+        priceValues.forEach(el => {
+          const value = el.dataset[code.toLowerCase()];
+          if (value) el.textContent = code === 'IN' ? `₹${value}` : `${value}`;
+          if (code === 'GLOBAL') el.textContent = `$${el.dataset.usd}`;
+          if (code === 'AE') el.textContent = `${el.dataset.aed}`;
+          if (code === 'SA') el.textContent = `${el.dataset.sar}`;
+          if (code === 'KW') el.textContent = `${el.dataset.kwd}`;
+        });
+        regionSelect.classList.remove('open');
+        regionBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function(e){
+      if (!regionSelect.contains(e.target)) {
+        regionSelect.classList.remove('open');
+        regionBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const hitCounter = document.getElementById('hitCounter');
+    function renderCounter(value){
+      const digits = Array.from(String(value), Number);
+      hitCounter.innerHTML = '';
+      digits.forEach(d => {
+        const span = document.createElement('span');
+        span.textContent = d;
+        hitCounter.appendChild(span);
+      });
+    }
+    let counterValue = 1742;
+    setInterval(() => {
+      counterValue += 1;
+      renderCounter(counterValue);
+    }, 4200);
+    renderCounter(counterValue);
+
+    function handleContactSubmit(event){
+      event.preventDefault();
+      const btn = event.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Request Sent';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        event.target.reset();
+      }, 1800);
+      return false;
+    }
+  </script>
 </body>
 </html>
+
