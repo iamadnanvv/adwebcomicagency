@@ -7,217 +7,43 @@
   <meta name="theme-color" content="#f6f5f2">
   <meta property="og:title" content="Ad Web Comic Agency — Thoughtful digital, built to work">
   <meta property="og:description" content="Distinctive, responsive websites for ambitious businesses. Thoughtful design, clear messaging and a direct line to your next customer.">
-  <meta property="og:image" content="logo.png">
-  <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Ad Web Comic Agency — Thoughtful digital, built to work</title>
   <style>
-    :root {
-      color-scheme: light;
-      --paper: #f6f5f2;
-      --surface: #eeede8;
-      --ink: #22231f;
-      --muted: #777870;
-      --line: #deded7;
-      --olive: #62664f;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', Arial, sans-serif;
-      --gutter: clamp(20px, 6vw, 88px);
-      --max: 1320px;
-      --header-height: 78px;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { min-width: 320px; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 18px); }
-    body { min-width: 320px; margin: 0; background: var(--paper); color: var(--ink); font: 400 15px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    button, input, select, textarea { color: inherit; font: inherit; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--olive); outline-offset: 4px; }
-    .wrap { width: min(100%, var(--max)); margin-inline: auto; padding-inline: var(--gutter); }
-    .topline { min-height: 32px; padding: 5px var(--gutter); display: flex; align-items: center; justify-content: center; background: var(--ink); color: var(--paper); text-align: center; text-transform: uppercase; letter-spacing: .13em; font-size: 9px; }
-    .header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(246,245,242,.96); backdrop-filter: blur(14px); }
-    .nav { position: relative; min-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; flex-shrink: 0; align-items: center; gap: 11px; text-decoration: none; }
-    .brand img { width: 38px; height: 38px; object-fit: contain; }
-    .brand-name { font-size: 11px; font-weight: 700; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; }
-    .brand-name small { display: block; color: var(--muted); font-size: 9px; font-weight: 500; letter-spacing: .16em; }
-    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.7vw, 36px); }
-    .nav-links a, .nav-cta { font-size: 10px; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
-    .nav-links a:hover, .footer-links a:hover { color: var(--olive); }
-    .nav-cta { padding: 11px 15px; border: 1px solid var(--ink); white-space: nowrap; transition: background .2s, color .2s; }
-    .nav-cta:hover { background: var(--ink); color: var(--paper); }
-    .menu-toggle { display: none; padding: 8px; border: 0; background: transparent; font-size: 22px; cursor: pointer; }
-    .hero { padding: clamp(78px, 12vw, 158px) 0 clamp(74px, 10vw, 124px); border-bottom: 1px solid var(--line); }
-    .eyebrow, .section-label { color: var(--olive); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; }
-    .eyebrow { display: flex; align-items: center; gap: 11px; }
-    .eyebrow::before { width: 27px; height: 1px; background: currentColor; content: ''; }
-    .hero h1 { max-width: 990px; margin: 25px 0 25px; font: 400 clamp(58px, 10.1vw, 132px)/.99 var(--serif); letter-spacing: -.065em; }
-    .hero h1 em { color: var(--olive); font-weight: 400; }
-    .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 35px; }
-    .hero-copy { max-width: 490px; margin: 0; color: var(--muted); font-size: clamp(15px, 1.5vw, 17px); }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; }
-    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 12px; padding: 12px 18px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-size: 10px; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; transition: background .2s, color .2s; }
-    .button:hover { background: transparent; color: var(--ink); }
-    .text-link { display: inline-flex; align-items: center; gap: 10px; padding: 0 0 5px; border-bottom: 1px solid var(--ink); font-size: 10px; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
-    .text-link span, .button span { font-size: 16px; transition: transform .2s; }
-    .text-link:hover span, .button:hover span { transform: translateX(3px); }
-    .intro-row { display: grid; grid-template-columns: 1fr 2fr; gap: 8vw; padding: clamp(72px, 9vw, 116px) 0; }
-    .intro-row h2, .section-heading { margin: 0; font: 400 clamp(36px, 5vw, 64px)/1.12 var(--serif); letter-spacing: -.045em; }
-    .intro-row p { max-width: 700px; margin: 20px 0 0; color: var(--muted); font-size: clamp(15px, 1.45vw, 18px); }
-    .intro-row .section-label { color: var(--muted); }
-    .section { padding: clamp(72px, 9vw, 112px) 0; border-top: 1px solid var(--line); }
-    .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 42px; }
-    .section-heading { margin-top: 14px; }
-    .section-note { max-width: 330px; margin: 0; color: var(--muted); font-size: 13px; }
-    .services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .service { min-width: 0; padding: 25px 22px 28px 0; border-right: 1px solid var(--line); }
-    .service:not(:first-child) { padding-left: 22px; }
-    .service:last-child { border-right: 0; }
-    .service-number { color: var(--olive); font-size: 10px; letter-spacing: .14em; }
-    .service h3 { margin: 28px 0 10px; font: 400 24px/1.2 var(--serif); }
-    .service p { margin: 0; color: var(--muted); font-size: 13px; }
-    .pricing-wrap { background: var(--surface); }
-    .pricing { padding: clamp(72px, 9vw, 112px) 0; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .plan { display: flex; min-width: 0; flex-direction: column; padding: 25px 20px 28px 0; border-right: 1px solid var(--line); }
-    .plan:not(:first-child) { padding-left: 20px; }
-    .plan:last-child { border-right: 0; }
-    .plan-name { color: var(--muted); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
-    .plan-price { margin: 19px 0 2px; font: 400 clamp(25px, 2.8vw, 36px)/1.2 var(--serif); }
-    .plan-cycle { color: var(--muted); font-size: 10px; }
-    .plan ul { flex: 1; padding: 0; margin: 22px 0 26px; color: var(--muted); font-size: 11px; list-style: none; }
-    .plan li { padding: 7px 0; border-bottom: 1px solid var(--line); }
-    .plan-link { align-self: flex-start; padding-bottom: 4px; border-bottom: 1px solid var(--ink); font-size: 9px; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
-    .plan-link:hover { color: var(--olive); border-color: var(--olive); }
-    .currency-note { margin: 18px 0 0; color: var(--muted); font-size: 10px; }
-    .projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 20px; }
-    .project { display: block; min-width: 0; text-decoration: none; }
-    .project-image { display: flex; aspect-ratio: 1.4; align-items: center; justify-content: center; overflow: hidden; padding: 16px; background: var(--surface); color: var(--olive); text-align: center; font: 400 clamp(18px, 2.3vw, 29px)/1.2 var(--serif); transition: background .2s; }
-    .project:nth-child(3n + 2) .project-image { background: #e9e8e2; }
-    .project:hover .project-image { background: #e3e2d9; }
-    .project-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-top: 12px; }
-    .project-meta h3 { margin: 0; font-size: 12px; font-weight: 500; }
-    .project-meta span { color: var(--muted); font-size: 9px; text-align: right; }
-    .contact-section { padding: clamp(72px, 9vw, 112px) 0; background: var(--surface); }
-    .contact-head { max-width: 760px; margin-bottom: 42px; }
-    .contact-head h2 { margin: 18px 0 12px; font: 400 clamp(47px, 7vw, 82px)/1.04 var(--serif); letter-spacing: -.055em; }
-    .contact-head p { max-width: 500px; margin: 0; color: var(--muted); }
-    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 7vw, 88px); }
-    .contact-details { display: grid; align-content: start; gap: 25px; }
-    .detail-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
-    .detail-value { font-size: 13px; text-decoration: none; overflow-wrap: anywhere; }
-    .detail-value:hover { color: var(--olive); }
-    .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .field { width: 100%; min-width: 0; padding: 12px 0; border: 0; border-bottom: 1px solid #999a91; border-radius: 0; background: transparent; font-size: 12px; }
-    .field::placeholder { color: var(--muted); }
-    .field:focus { outline: none; border-color: var(--olive); }
-    .field-full, .submit { grid-column: 1 / -1; }
-    textarea.field { min-height: 86px; resize: vertical; }
-    .submit { justify-self: start; min-height: 46px; margin-top: 8px; padding: 12px 19px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); cursor: pointer; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; transition: background .2s, color .2s; }
-    .submit:hover { background: transparent; color: var(--ink); }
-    .form-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 10px; }
-    footer { padding: 30px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-    .footer-copy, .footer-links a { color: var(--muted); font-size: 9px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
-    .footer-links a { text-decoration: none; }
-    @media (max-width: 850px) {
-      :root { --header-height: 68px; }
-      .menu-toggle { display: block; }
-      .nav-cta { display: none; }
-      .nav-links { position: absolute; top: 100%; right: 0; left: 0; display: none; max-height: calc(100dvh - var(--header-height) - 32px); overflow-y: auto; padding: 18px var(--gutter) 24px; border-bottom: 1px solid var(--line); background: var(--paper); flex-direction: column; align-items: flex-start; gap: 17px; }
-      .nav-links.open { display: flex; }
-      .hero-bottom { align-items: flex-start; flex-direction: column; gap: 24px; }
-      .intro-row { grid-template-columns: 1fr; gap: 22px; }
-      .services, .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .service:nth-child(2), .plan:nth-child(2) { border-right: 0; }
-      .service:nth-child(n + 3), .plan:nth-child(n + 3) { border-top: 1px solid var(--line); padding-top: 23px; }
-      .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .contact-grid { grid-template-columns: 1fr; }
-      .contact-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .section-head { align-items: flex-start; flex-direction: column; }
-    }
-    @media (max-width: 520px) {
-      .topline { font-size: 8px; letter-spacing: .08em; }
-      .brand { gap: 8px; }
-      .brand img { width: 33px; height: 33px; }
-      .hero { padding-top: 70px; }
-      .hero h1 { font-size: clamp(54px, 15.8vw, 78px); }
-      .hero-actions { align-items: flex-start; flex-direction: column; gap: 17px; }
-      .services, .pricing-grid, .projects { grid-template-columns: minmax(0, 1fr); }
-      .service, .service:not(:first-child), .service:nth-child(n + 3) { padding: 22px 0; border-top: 1px solid var(--line); border-right: 0; }
-      .service:first-child { border-top: 0; }
-      .service h3 { margin-top: 15px; }
-      .plan, .plan:not(:first-child), .plan:nth-child(n + 3) { padding: 22px 0; border-top: 1px solid var(--line); border-right: 0; }
-      .plan:first-child { border-top: 0; }
-      .plan-price { font-size: 32px; }
-      .project-image { aspect-ratio: 1.5; }
-      .contact-details, .contact-form { grid-template-columns: minmax(0, 1fr); }
-      .field-full, .submit, .form-note { grid-column: 1; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-      .footer-links { gap: 15px; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    :root{color-scheme:light;--paper:#f6f5f2;--surface:#eeede8;--ink:#22231f;--muted:#777870;--line:#deded7;--olive:#62664f;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;--gutter:clamp(20px,6vw,88px);--max:1320px;--header-height:78px}
+    *,*::before,*::after{box-sizing:border-box}html{min-width:320px;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 18px)}body{min-width:320px;margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.7 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button,input,select,textarea{color:inherit;font:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--olive);outline-offset:4px}.wrap{width:min(100%,var(--max));margin-inline:auto;padding-inline:var(--gutter)}
+    .topline{min-height:32px;padding:5px var(--gutter);display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);text-align:center;text-transform:uppercase;letter-spacing:.13em;font-size:9px}.header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:rgba(246,245,242,.96);backdrop-filter:blur(14px)}.nav{position:relative;min-height:var(--header-height);display:flex;align-items:center;justify-content:flex-end;gap:24px}.nav-links{display:flex;align-items:center;gap:clamp(16px,2.7vw,36px)}.nav-links a,.nav-cta{font-size:10px;letter-spacing:.1em;text-decoration:none;text-transform:uppercase}.nav-links a:hover,.footer-links a:hover{color:var(--olive)}.nav-cta{padding:11px 15px;border:1px solid var(--ink);white-space:nowrap;transition:background .2s,color .2s}.nav-cta:hover{background:var(--ink);color:var(--paper)}.menu-toggle{display:none;padding:8px;border:0;background:transparent;font-size:22px;cursor:pointer}
+    .hero{padding:clamp(78px,12vw,158px) 0 clamp(74px,10vw,124px);border-bottom:1px solid var(--line)}.eyebrow,.section-label{color:var(--olive);font-size:10px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}.eyebrow{display:flex;align-items:center;gap:11px}.eyebrow::before{width:27px;height:1px;background:currentColor;content:''}.hero h1{max-width:990px;margin:25px 0;font:400 clamp(58px,10.1vw,132px)/.99 var(--serif);letter-spacing:-.065em}.hero h1 em{color:var(--olive);font-weight:400}.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:35px}.hero-copy{max-width:490px;margin:0;color:var(--muted);font-size:clamp(15px,1.5vw,17px)}.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:22px}.button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:12px;padding:12px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-size:10px;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;transition:background .2s,color .2s}.button:hover{background:transparent;color:var(--ink)}.text-link{display:inline-flex;align-items:center;gap:10px;padding:0 0 5px;border-bottom:1px solid var(--ink);font-size:10px;letter-spacing:.11em;text-decoration:none;text-transform:uppercase}.text-link span,.button span{font-size:16px;transition:transform .2s}.text-link:hover span,.button:hover span{transform:translateX(3px)}
+    .intro-row{display:grid;grid-template-columns:1fr 2fr;gap:8vw;padding:clamp(72px,9vw,116px) 0}.intro-row h2,.section-heading{margin:0;font:400 clamp(36px,5vw,64px)/1.12 var(--serif);letter-spacing:-.045em}.intro-row p{max-width:700px;margin:20px 0 0;color:var(--muted);font-size:clamp(15px,1.45vw,18px)}.intro-row .section-label{color:var(--muted)}.section{padding:clamp(72px,9vw,112px) 0;border-top:1px solid var(--line)}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:42px}.section-heading{margin-top:14px}.section-note{max-width:330px;margin:0;color:var(--muted);font-size:13px}.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.service{min-width:0;padding:25px 22px 28px 0;border-right:1px solid var(--line)}.service:not(:first-child){padding-left:22px}.service:last-child{border-right:0}.service-number{color:var(--olive);font-size:10px;letter-spacing:.14em}.service h3{margin:28px 0 10px;font:400 24px/1.2 var(--serif)}.service p{margin:0;color:var(--muted);font-size:13px}
+    .pricing-wrap{background:var(--surface)}.pricing{padding:clamp(72px,9vw,112px) 0}.pricing-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.plan{display:flex;min-width:0;flex-direction:column;padding:25px 20px 28px 0;border-right:1px solid var(--line)}.plan:not(:first-child){padding-left:20px}.plan:last-child{border-right:0}.plan-name{color:var(--muted);font-size:9px;letter-spacing:.13em;text-transform:uppercase}.plan-price{margin:19px 0 2px;font:400 clamp(25px,2.8vw,36px)/1.2 var(--serif)}.plan-cycle{color:var(--muted);font-size:10px}.plan ul{flex:1;padding:0;margin:22px 0 26px;color:var(--muted);font-size:11px;list-style:none}.plan li{padding:7px 0;border-bottom:1px solid var(--line)}.plan-link{align-self:flex-start;padding-bottom:4px;border-bottom:1px solid var(--ink);font-size:9px;letter-spacing:.12em;text-decoration:none;text-transform:uppercase}.plan-link:hover{color:var(--olive);border-color:var(--olive)}.currency-note{margin:18px 0 0;color:var(--muted);font-size:10px}
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 20px}.project{display:block;min-width:0;text-decoration:none}.project-image{display:flex;aspect-ratio:1.4;align-items:center;justify-content:center;overflow:hidden;padding:16px;background:var(--surface);color:var(--olive);text-align:center;font:400 clamp(18px,2.3vw,29px)/1.2 var(--serif);transition:background .2s}.project:nth-child(3n+2) .project-image{background:#e9e8e2}.project:hover .project-image{background:#e3e2d9}.project-meta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-top:12px}.project-meta h3{margin:0;font-size:12px;font-weight:500}.project-meta span{color:var(--muted);font-size:9px;text-align:right}
+    .contact-section{padding:clamp(72px,9vw,112px) 0;background:var(--surface)}.contact-head{max-width:760px;margin-bottom:42px}.contact-head h2{margin:18px 0 12px;font:400 clamp(47px,7vw,82px)/1.04 var(--serif);letter-spacing:-.055em}.contact-head p{max-width:500px;margin:0;color:var(--muted)}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,7vw,88px)}.contact-details{display:grid;align-content:start;gap:25px}.detail-label{display:block;margin-bottom:4px;color:var(--muted);font-size:9px;letter-spacing:.14em;text-transform:uppercase}.detail-value{font-size:13px;text-decoration:none;overflow-wrap:anywhere}.detail-value:hover{color:var(--olive)}.contact-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{width:100%;min-width:0;padding:12px 0;border:0;border-bottom:1px solid #999a91;border-radius:0;background:transparent;font-size:12px}.field::placeholder{color:var(--muted)}.field:focus{outline:none;border-color:var(--olive)}.field-full,.submit{grid-column:1/-1}textarea.field{min-height:86px;resize:vertical}.submit{justify-self:start;min-height:46px;margin-top:8px;padding:12px 19px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;font-size:10px;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s}.submit:hover{background:transparent;color:var(--ink)}.form-note{grid-column:1/-1;margin:0;color:var(--muted);font-size:10px}
+    footer{padding:30px 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}.footer-copy,.footer-links a{color:var(--muted);font-size:9px}.footer-links{display:flex;flex-wrap:wrap;gap:20px}.footer-links a{text-decoration:none}
+    @media(max-width:850px){:root{--header-height:68px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{position:absolute;top:100%;right:0;left:0;display:none;max-height:calc(100dvh - var(--header-height) - 32px);overflow-y:auto;padding:18px var(--gutter) 24px;border-bottom:1px solid var(--line);background:var(--paper);flex-direction:column;align-items:flex-start;gap:17px}.nav-links.open{display:flex}.nav{justify-content:space-between}.hero-bottom{align-items:flex-start;flex-direction:column;gap:24px}.intro-row{grid-template-columns:1fr;gap:22px}.services,.pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service:nth-child(2),.plan:nth-child(2){border-right:0}.service:nth-child(n+3),.plan:nth-child(n+3){border-top:1px solid var(--line);padding-top:23px}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-grid{grid-template-columns:1fr}.contact-details{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.topline{font-size:8px;letter-spacing:.08em}.hero{padding-top:70px}.hero h1{font-size:clamp(54px,15.8vw,78px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.services,.pricing-grid,.projects{grid-template-columns:minmax(0,1fr)}.service,.service:not(:first-child),.service:nth-child(n+3){padding:22px 0;border-top:1px solid var(--line);border-right:0}.service:first-child{border-top:0}.service h3{margin-top:15px}.plan,.plan:not(:first-child),.plan:nth-child(n+3){padding:22px 0;border-top:1px solid var(--line);border-right:0}.plan:first-child{border-top:0}.plan-price{font-size:32px}.project-image{aspect-ratio:1.5}.contact-details,.contact-form{grid-template-columns:minmax(0,1fr)}.field-full,.submit,.form-note{grid-column:1}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{gap:15px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
   <div class="topline">Independent digital studio &nbsp;·&nbsp; Bangalore · Kochi · Kozhikode</div>
-  <header class="header">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Ad Web Comic Agency home"><img src="logo.png" alt=""><span class="brand-name">Ad Web Comic<small>Digital studio</small></span></a>
-      <nav class="nav-links" id="site-navigation" aria-label="Main navigation"><a href="#studio">Studio</a><a href="#services">Expertise</a><a href="#investment">Investment</a><a href="#work">Selected work</a><a href="#contact">Contact</a></nav>
-      <a class="nav-cta" href="#contact">Plan your website&nbsp; ↗</a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">☰</button>
-    </div>
-  </header>
+  <header class="header"><div class="wrap nav">
+    <nav class="nav-links" id="site-navigation" aria-label="Main navigation"><a href="#studio">Studio</a><a href="#services">Expertise</a><a href="#investment">Investment</a><a href="#work">Selected work</a><a href="#contact">Contact</a></nav>
+    <a class="nav-cta" href="#contact">Plan your website&nbsp; ↗</a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">☰</button>
+  </div></header>
   <main id="top">
-    <section class="hero"><div class="wrap">
-      <div class="eyebrow">Thoughtful digital, built to work</div>
-      <h1>A better website.<br><em>A better first impression.</em></h1>
-      <div class="hero-bottom"><p class="hero-copy">We design and build clear, distinctive websites that help good businesses earn trust and turn more visits into enquiries. Thoughtful from the first sketch to the final line of code.</p><div class="hero-actions"><a class="button" href="#contact">Tell us what you’re building <span aria-hidden="true">↗</span></a><a class="text-link" href="#work">Explore selected work <span aria-hidden="true">→</span></a></div></div>
-    </div></section>
+    <section class="hero"><div class="wrap"><div class="eyebrow">Thoughtful digital, built to work</div><h1>A better website.<br><em>A better first impression.</em></h1><div class="hero-bottom"><p class="hero-copy">We design and build clear, distinctive websites that help good businesses earn trust and turn more visits into enquiries. Thoughtful from the first sketch to the final line of code.</p><div class="hero-actions"><a class="button" href="#contact">Tell us what you’re building <span aria-hidden="true">↗</span></a><a class="text-link" href="#work">Explore selected work <span aria-hidden="true">↗</span></a></div></div></div></section>
     <section class="wrap intro-row" id="studio"><div class="section-label">01 &nbsp; / &nbsp; The studio</div><div><h2>Good digital should feel effortless.</h2><p>We are an independent web agency bringing clarity to complex ideas. Every detail has a purpose: making your business easier to understand, your brand easier to trust, and the next step easier to take.</p><p>Based in India and working across borders, we partner with ambitious teams to make fast, distinctive digital experiences that feel wholly theirs.</p></div></section>
-    <section class="section" id="services"><div class="wrap"><div class="section-head"><div><div class="section-label">02 &nbsp; / &nbsp; What we do</div><h2 class="section-heading">The right things,<br>done with care.</h2></div><p class="section-note">A practical mix of design and technology, shaped around your business and the people you want to reach.</p></div>
-      <div class="services"><article class="service"><span class="service-number">01</span><h3>Websites</h3><p>Custom, responsive websites with thoughtful design, fast performance, and a clear path from first visit to enquiry.</p></article><article class="service"><span class="service-number">02</span><h3>Digital products</h3><p>Web and mobile applications that make everyday tasks simpler and create a better customer experience.</p></article><article class="service"><span class="service-number">03</span><h3>Business systems</h3><p>Purpose-built software for the way you work, from internal tools to inventory, invoicing, and operations.</p></article><article class="service"><span class="service-number">04</span><h3>Studio partners</h3><p>Quiet, reliable white-label production for agencies seeking a trusted development partner.</p></article></div>
-    </div></section>
-    <section class="pricing-wrap" id="investment"><div class="wrap pricing"><div class="section-head"><div><div class="section-label">03 &nbsp; / &nbsp; Investment</div><h2 class="section-heading">A clear place to start.</h2></div><p class="section-note">Know the starting point before we talk. Every proposal is tailored to your goals, scope, and requirements.</p></div>
-      <div class="pricing-grid"><article class="plan"><div class="plan-name">Essential website</div><div class="plan-price">₹22,000</div><div class="plan-cycle">One-time · from</div><ul><li>Up to five pages</li><li>Responsive design</li><li>Foundational SEO</li><li>Three months of support</li></ul><a class="plan-link" href="#contact">Discuss your project&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Growth website</div><div class="plan-price">Custom</div><div class="plan-cycle">Scoped to your goals</div><ul><li>Bespoke design system</li><li>Advanced interactions</li><li>CMS integration</li><li>Six months of support</li></ul><a class="plan-link" href="#contact">Request a proposal&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Digital product</div><div class="plan-price">₹65,000</div><div class="plan-cycle">Project-based · from</div><ul><li>Web or mobile app</li><li>Custom functionality</li><li>API integrations</li><li>Priority support</li></ul><a class="plan-link" href="#contact">Tell us what you need&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Care &amp; maintenance</div><div class="plan-price">₹6,000</div><div class="plan-cycle">Annual · from</div><ul><li>Hosting and SSL</li><li>Security updates</li><li>Content support</li><li>Peace of mind</li></ul><a class="plan-link" href="#contact">Keep in touch&nbsp; ↗</a></article></div>
-      <p class="currency-note">Prices shown in INR. Final pricing depends on scope and requirements.</p>
-    </div></section>
-    <section class="section" id="work"><div class="wrap"><div class="section-head"><div><div class="section-label">04 &nbsp; / &nbsp; Selected work</div><h2 class="section-heading">Good work, made together.</h2></div><p class="section-note">A selection of businesses and ideas we’ve helped bring online. Open a project to see it in the wild.</p></div>
-      <div class="projects"><a class="project" href="https://globalbestuae.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Global Best UAE</div><div class="project-meta"><h3>Global Best UAE</h3><span>Corporate</span></div></a><a class="project" href="https://www.nylainteriors.in/" target="_blank" rel="noopener noreferrer"><div class="project-image">Nyla Interiors</div><div class="project-meta"><h3>Nyla Interiors</h3><span>Interiors</span></div></a><a class="project" href="https://www.manaveg.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Mana Veg</div><div class="project-meta"><h3>Mana Veg</h3><span>Food &amp; hospitality</span></div></a><a class="project" href="https://www.welcomeproperties.in/" target="_blank" rel="noopener noreferrer"><div class="project-image">Welcome Properties</div><div class="project-meta"><h3>Welcome Properties</h3><span>Real estate</span></div></a><a class="project" href="https://www.idcinteriorstudio.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">IDC Interior Studio</div><div class="project-meta"><h3>IDC Interior Studio</h3><span>Interiors</span></div></a><a class="project" href="https://adatelier.framer.website/" target="_blank" rel="noopener noreferrer"><div class="project-image">Ad Atelier</div><div class="project-meta"><h3>Ad Atelier</h3><span>Creative studio</span></div></a><a class="project" href="https://acecsaudi.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">ACEC Saudi</div><div class="project-meta"><h3>ACEC Saudi</h3><span>Business</span></div></a><a class="project" href="https://welcomemart.shop/" target="_blank" rel="noopener noreferrer"><div class="project-image">Welcome Mart</div><div class="project-meta"><h3>Welcome Mart</h3><span>E-commerce</span></div></a><a class="project" href="https://www.drsajiniidentalclinic.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Dr. Sajini Dental Clinic</div><div class="project-meta"><h3>Dr. Sajini Dental Clinic</h3><span>Healthcare</span></div></a></div>
-    </div></section>
-    <section class="contact-section" id="contact"><div class="wrap"><div class="contact-head"><div class="section-label">05 &nbsp; / &nbsp; Contact</div><h2>Let’s make your<br>next move count.</h2><p>Tell us what you’re working on. We’ll get back to you to talk through your goals, budget, and the right next step.</p></div>
-      <div class="contact-grid"><div class="contact-details"><div><span class="detail-label">Call us</span><a class="detail-value" href="tel:+919656778508">+91 96567 78508</a></div><div><span class="detail-label">Email</span><a class="detail-value" href="mailto:adwebcomicagency@gmail.com">adwebcomicagency@gmail.com</a></div><div><span class="detail-label">Based in</span><span class="detail-value">Bangalore · Kochi · Kozhikode</span></div><div><span class="detail-label">Typical starting point</span><span class="detail-value">Websites from ₹22,000</span></div></div>
-        <form class="contact-form" id="contact-form"><input class="field" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name" required><input class="field" type="email" name="email" autocomplete="email" placeholder="Email address" aria-label="Email address" required><select class="field field-full" name="service" aria-label="What can we help with?"><option value="">What can we help with?</option><option>Website design &amp; development</option><option>Web or mobile application</option><option>Business software</option><option>Agency partnership</option><option>Something else</option></select><textarea class="field field-full" name="message" placeholder="A little about your project, goals, or budget" aria-label="A little about your project, goals, or budget" required></textarea><p class="form-note">No pressure, no obligation—just a useful first conversation.</p><button class="submit" type="submit">Send your project brief&nbsp; ↗</button></form>
-      </div>
-    </div></section>
+    <section class="section" id="services"><div class="wrap"><div class="section-head"><div><div class="section-label">02 &nbsp; / &nbsp; What we do</div><h2 class="section-heading">The right things,<br>done with care.</h2></div><p class="section-note">A practical mix of design and technology, shaped around your business and the people you want to reach.</p></div><div class="services"><article class="service"><span class="service-number">01</span><h3>Websites</h3><p>Custom, responsive websites with thoughtful design, fast performance, and a clear path from first visit to enquiry.</p></article><article class="service"><span class="service-number">02</span><h3>Digital products</h3><p>Web and mobile applications that make everyday tasks simpler and create a better customer experience.</p></article><article class="service"><span class="service-number">03</span><h3>Business systems</h3><p>Purpose-built software for the way you work, from internal tools to inventory, invoicing, and operations.</p></article><article class="service"><span class="service-number">04</span><h3>Studio partners</h3><p>Quiet, reliable white-label production for agencies seeking a trusted development partner.</p></article></div></div></section>
+    <section class="pricing-wrap" id="investment"><div class="wrap pricing"><div class="section-head"><div><div class="section-label">03 &nbsp; / &nbsp; Investment</div><h2 class="section-heading">A clear place to start.</h2></div><p class="section-note">Know the starting point before we talk. Every proposal is tailored to your goals, scope, and requirements.</p></div><div class="pricing-grid"><article class="plan"><div class="plan-name">Essential website</div><div class="plan-price">₹22,000</div><div class="plan-cycle">One-time · from</div><ul><li>Up to five pages</li><li>Responsive design</li><li>Foundational SEO</li><li>Three months of support</li></ul><a class="plan-link" href="#contact">Discuss your project&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Growth website</div><div class="plan-price">Custom</div><div class="plan-cycle">Scoped to your goals</div><ul><li>Bespoke design system</li><li>Advanced interactions</li><li>CMS integration</li><li>Six months of support</li></ul><a class="plan-link" href="#contact">Request a proposal&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Digital product</div><div class="plan-price">₹65,000</div><div class="plan-cycle">Project-based · from</div><ul><li>Web or mobile app</li><li>Custom functionality</li><li>API integrations</li><li>Priority support</li></ul><a class="plan-link" href="#contact">Tell us what you need&nbsp; ↗</a></article><article class="plan"><div class="plan-name">Care &amp; maintenance</div><div class="plan-price">₹6,000</div><div class="plan-cycle">Annual · from</div><ul><li>Hosting and SSL</li><li>Security updates</li><li>Content support</li><li>Peace of mind</li></ul><a class="plan-link" href="#contact">Keep in touch&nbsp; ↗</a></article></div><p class="currency-note">Prices shown in INR. Final pricing depends on scope and requirements.</p></div></section>
+    <section class="section" id="work"><div class="wrap"><div class="section-head"><div><div class="section-label">04 &nbsp; / &nbsp; Selected work</div><h2 class="section-heading">Good work, made together.</h2></div><p class="section-note">A selection of businesses and ideas we’ve helped bring online. Open a project to see it in the wild.</p></div><div class="projects"><a class="project" href="https://globalbestuae.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Global Best UAE</div><div class="project-meta"><h3>Global Best UAE</h3><span>Corporate</span></div></a><a class="project" href="https://www.nylainteriors.in/" target="_blank" rel="noopener noreferrer"><div class="project-image">Nyla Interiors</div><div class="project-meta"><h3>Nyla Interiors</h3><span>Interiors</span></div></a><a class="project" href="https://www.manaveg.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Mana Veg</div><div class="project-meta"><h3>Mana Veg</h3><span>Food &amp; hospitality</span></div></a><a class="project" href="https://www.welcomeproperties.in/" target="_blank" rel="noopener noreferrer"><div class="project-image">Welcome Properties</div><div class="project-meta"><h3>Welcome Properties</h3><span>Real estate</span></div></a><a class="project" href="https://www.idcinteriorstudio.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">IDC Interior Studio</div><div class="project-meta"><h3>IDC Interior Studio</h3><span>Interiors</span></div></a><a class="project" href="https://adatelier.framer.website/" target="_blank" rel="noopener noreferrer"><div class="project-image">Ad Atelier</div><div class="project-meta"><h3>Ad Atelier</h3><span>Creative studio</span></div></a><a class="project" href="https://acecsaudi.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">ACEC Saudi</div><div class="project-meta"><h3>ACEC Saudi</h3><span>Business</span></div></a><a class="project" href="https://welcomemart.shop/" target="_blank" rel="noopener noreferrer"><div class="project-image">Welcome Mart</div><div class="project-meta"><h3>Welcome Mart</h3><span>E-commerce</span></div></a><a class="project" href="https://www.drsajiniidentalclinic.com/" target="_blank" rel="noopener noreferrer"><div class="project-image">Dr. Sajini Dental Clinic</div><div class="project-meta"><h3>Dr. Sajini Dental Clinic</h3><span>Healthcare</span></div></a></div></div></section>
+    <section class="contact-section" id="contact"><div class="wrap"><div class="contact-head"><div class="section-label">05 &nbsp; / &nbsp; Contact</div><h2>Let’s make your<br>next move count.</h2><p>Tell us what you’re working on. We’ll get back to you to talk through your goals, budget, and the right next step.</p></div><div class="contact-grid"><div class="contact-details"><div><span class="detail-label">Call us</span><a class="detail-value" href="tel:+919656778508">+91 96567 78508</a></div><div><span class="detail-label">Email</span><a class="detail-value" href="mailto:adwebcomicagency@gmail.com">adwebcomicagency@gmail.com</a></div><div><span class="detail-label">Based in</span><span class="detail-value">Bangalore · Kochi · Kozhikode</span></div><div><span class="detail-label">Typical starting point</span><span class="detail-value">Websites from ₹22,000</span></div></div><form class="contact-form" id="contact-form"><input class="field" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name" required><input class="field" type="email" name="email" autocomplete="email" placeholder="Email address" aria-label="Email address" required><select class="field field-full" name="service" aria-label="What can we help with?"><option value="">What can we help with?</option><option>Website design &amp; development</option><option>Web or mobile application</option><option>Business software</option><option>Agency partnership</option><option>Something else</option></select><textarea class="field field-full" name="message" placeholder="A little about your project, goals, or budget" aria-label="A little about your project, goals, or budget" required></textarea><p class="form-note">No pressure, no obligation—just a useful first conversation.</p><button class="submit" type="submit">Send your project brief&nbsp; ↗</button></form></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><span class="footer-copy">© 2026 Ad Web Comic Agency · MSME-KL-08-0101744</span><div class="footer-links"><a href="https://www.instagram.com/_adwebcomicagency._/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="mailto:adwebcomicagency@gmail.com">Email ↗</a><a href="#top">Back to top ↑</a></div></div></footer>
   <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.nav-links');
-    menuButton.addEventListener('click', () => {
-      const open = navigation.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      menuButton.textContent = open ? '×' : '☰';
-    });
-    navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navigation.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open navigation');
-      menuButton.textContent = '☰';
-    }));
-    document.getElementById('contact-form').addEventListener('submit', event => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const subject = encodeURIComponent(`Website enquiry from ${data.get('name')}`);
-      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nService: ${data.get('service') || 'Not specified'}\n\n${data.get('message')}`);
-      window.location.href = `mailto:adwebcomicagency@gmail.com?subject=${subject}&body=${body}`;
-    });
+    const menuButton=document.querySelector('.menu-toggle');const navigation=document.querySelector('.nav-links');menuButton.addEventListener('click',()=>{const open=navigation.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation');menuButton.textContent=open?'×':'☰'});navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navigation.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');menuButton.textContent='☰'}));document.getElementById('contact-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget);const subject=encodeURIComponent(`Website enquiry from ${data.get('name')}`);const body=encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nService: ${data.get('service')||'Not specified'}\n\n${data.get('message')}`);window.location.href=`mailto:adwebcomicagency@gmail.com?subject=${subject}&body=${body}`});
   </script>
 </body>
 </html>
