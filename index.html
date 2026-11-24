@@ -26,7 +26,7 @@
     .faq{padding:clamp(70px,9vw,110px) 0;border-bottom:1px solid var(--line)}.faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:8vw}.faq-list details{border-top:1px solid var(--line);padding:18px 0}.faq-list details:last-child{border-bottom:1px solid var(--line)}.faq-list summary{cursor:pointer;list-style:none;font-size:14px;font-weight:500;display:flex;justify-content:space-between;gap:20px}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:'+';font-size:19px;color:var(--olive);line-height:1}.faq-list details[open] summary:after{content:'−'}.faq-list p{max-width:680px;color:var(--muted);font-size:13px;margin:12px 30px 0 0}
     .contact{background:#eeede8;padding:clamp(70px,9vw,110px) 0}.contact-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:8vw;align-items:start}.contact h2{max-width:760px;margin:18px 0 20px;font:400 clamp(46px,7vw,82px)/1.02 var(--serif);letter-spacing:-.035em}.contact-copy{color:var(--muted);max-width:560px}.contact-prompt{font-size:12px;color:var(--ink);margin-top:28px}.contact-options{display:grid;gap:12px;margin-top:22px}.contact-option{display:block;border:1px solid #d8d7d0;padding:17px 19px;text-decoration:none;transition:.2s}.contact-option:hover{border-color:var(--olive);background:rgba(255,255,255,.35)}.contact-option strong{display:block;font-size:12px}.contact-option span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.contact-note{font-size:10px;color:var(--muted);margin-top:15px}
     footer{padding:30px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.footer-inner a{text-decoration:none}.footer-inner a:hover{color:var(--olive)}
-    :focus-visible{outline:2px solid var(--olive);outline-offset:4px}@media(max-width:850px){.nav-links{display:none}.nav-cta{display:none}.hero-bottom{align-items:flex-start;flex-direction:column}.intro,.process-head,.faq-layout{grid-template-columns:1fr}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-layout{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.proof-inner{flex-wrap:wrap;justify-content:flex-start}.pillars{gap:16px}}
+    :focus-visible{outline:2px solid var(--olive);outline-offset:4px}@media(max-width:850px){.nav-links{display:none}.nav-cta{display:none}.hero-bottom{align-items:flex-start;flex-direction:column}.intro,.process-head,.faq-layout{grid-template-columns:1fr}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-layout{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.proof-inner{flex-wrap:wrap;justify-content:flex-start}.pillars{gap:16px}} 
     @media(max-width:560px){.projects,.steps,.pillars{grid-template-columns:1fr}.project-card{aspect-ratio:1.35}.work-head{align-items:flex-start;flex-direction:column}.hero-actions,.contact-links{flex-direction:column;align-items:stretch;width:100%}.button{text-align:center}.footer-inner{flex-direction:column}.proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact h2{font-size:52px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
@@ -45,255 +45,33 @@
       <a class="project" href="https://www.idcinteriorstudio.com/" target="_blank" rel="noopener noreferrer"><div class="project-card"><span>IDC Interior Studio</span></div><div class="project-meta"><div><h3>IDC Interior Studio</h3><p>Interior design</p></div><span>Visit site ↗</span></div></a>
       <a class="project" href="https://acecsaudi.com/" target="_blank" rel="noopener noreferrer"><div class="project-card"><span>ACEC Saudi</span></div><div class="project-meta"><div><h3>ACEC Saudi</h3><p>Professional services</p></div><span>Visit site ↗</span></div></a>
       <a class="project" href="https://welcomemart.shop/" target="_blank" rel="noopener noreferrer"><div class="project-card"><span>Welcome Mart</span></div><div class="project-meta"><div><h3>Welcome Mart</h3><p>Online commerce</p></div><span>Visit site ↗</span></div></a>
+      <a class="project" href="https://www.demir.co.in" target="_blank" rel="noopener noreferrer"><div class="project-card"><span>Demir</span></div><div class="project-meta"><div><h3>Demir</h3><p>Business website</p></div><span>Visit site ↗</span></div></a>
     </div></div></section>
     <section class="process" id="process"><div class="wrap"><div class="process-head"><div><div class="section-label">03 / How we work</div><h2>Clear steps.<br>Thoughtful work.</h2></div><p>No confusing handoffs or unnecessary complexity. We keep the process collaborative, focused and shaped around what success means for your business.</p></div><div class="steps"><article class="step"><span class="step-num">01 / DISCOVER</span><h3>Start with context</h3><p>We learn about your business, audience, challenges and the outcome you want.</p></article><article class="step"><span class="step-num">02 / STRATEGY</span><h3>Set a direction</h3><p>We align on the message, scope and experience before moving into design.</p></article><article class="step"><span class="step-num">03 / CREATE</span><h3>Build it together</h3><p>We shape, refine and develop your website with useful feedback at each stage.</p></article><article class="step"><span class="step-num">04 / LAUNCH</span><h3>Move forward</h3><p>We prepare your new site to launch and discuss the next opportunities to grow.</p></article></div></div></section>
     <section class="faq" id="faq"><div class="wrap faq-layout"><div><div class="section-label">04 / A few answers</div><h2>Good to know.</h2></div><div class="faq-list"><details><summary>What can you help my business with?</summary><p>We bring strategy, content, design and website development together. The right mix depends on your goals, audience and what is currently getting in the way.</p></details><details><summary>How do we get started?</summary><p>Send a short note about your business and what you would like to improve. We will take it from there with a conversation to understand your needs and see whether we are a good fit.</p></details><details><summary>How long does a website project take?</summary><p>Timing depends on the scope, content and feedback process. After we understand what you need, we can outline a realistic plan and key milestones before work begins.</p></details><details><summary>Can you work with an existing website?</summary><p>Yes. We can discuss a new direction or improvements to an existing site, depending on your priorities and the current setup.</p></details><details><summary>Do you work with businesses outside Kerala?</summary><p>Yes. We are based in Kerala and work with businesses in other locations too. We can collaborate remotely throughout the project.</p></details></div></div></section>
-    <section class="contact" id="contact"><div class="wrap contact-layout"><div><div class="section-label">05 / Your next step</div><h2>Let's make your next move count.</h2><p class="contact-copy">Tell us where you want your business to go. A few details are enough to begin; we will follow up to understand the rest and recommend a useful next step.</p><div class="contact-links"><a class="button fill" href="mailto:adwebcomicllp@gmail.com?subject=Website%20project%20enquiry">Email about your project</a></div></div><div><p class="contact-prompt"><strong>Not sure what you need yet?</strong><br>Choose the conversation that feels right. No lengthy brief required.</p><div class="contact-options"><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27m%20starting%20a%20new%20website"><strong>I am starting something new</strong><span>Share your idea, audience and what you hope to achieve →</span></a><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27d%20like%20to%20improve%20my%20website"><strong>I want to improve my current website</strong><span>Tell us what is working and what needs to change →</span></a><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27m%20exploring%20options"><strong>I am exploring options</strong><span>Ask a question or simply start with a quick introduction →</span></a></div><p class="contact-note">Prefer to keep it simple? Just email us with a sentence or two. We will take it from there.</p></div></div></section>
+    <section class="contact" id="contact"><div class="wrap contact-layout"><div><div class="section-label">05 / Your next step</div><h2>Let's make your next move count.</h2><p class="contact-copy">Tell us where you want your business to go. A few details are enough to begin; we will follow up to understand the rest and recommend a useful next step.</p><div class="contact-links"><a class="button fill" href="mailto:adwebcomicllp@gmail.com?subject=Website%20project%20enquiry">Email about your project</a></div></div><div><p class="contact-prompt"><strong>Not sure what you need yet?</strong><br>Choose the conversation that feels right. No lengthy brief required.</p><div class="contact-options"><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27m%20starting%20a%20new%20website"><strong>I am starting something new</strong><span>Share your idea, audience and what you hope to achieve ↗</span></a><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27d%20like%20to%20improve%20my%20website"><strong>I want to improve my current website</strong><span>Tell us what is working and what needs to change ↗</span></a><a class="contact-option" href="mailto:adwebcomicllp@gmail.com?subject=I%27m%20exploring%20options"><strong>I am exploring options</strong><span>Ask a question or simply start with a quick introduction ↗</span></a></div><p class="contact-note">Prefer to keep it simple? Just email us with a sentence or two. We will take it from there.</p></div></div></section>
   </main>
   <style>
       /* Widgetify Core Styles - Responsive & Mobile-First */
-      .widgetify-widget {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        background-color: #000000;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        z-index: 1000;
-        border: none;
-        outline: none;
-      }
-
-      .widgetify-widget:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .widgetify-popup {
-        position: fixed;
-        bottom: 90px;
-        right: 20px;
-        width: 400px;
-        max-width: 90vw;
-        background-color: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        display: none;
-        flex-direction: column;
-        z-index: 999;
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-        padding: 20px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      }
-
-      .widgetify-popup.show {
-        display: flex;
-        animation: fadeInUp 0.3s ease;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .widgetify-header {
-        background-color: #f3f4f6;
-        padding: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #e5e7eb;
-        border-radius: 10px 10px 0 0;
-        margin: -20px -20px 0 -20px;
-      }
-
-      .widgetify-header h3 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: 600;
-        color: #374151;
-      }
-
-      .widgetify-close {
-        background: none;
-        border: none;
-        font-size: 18px;
-        color: #6b7280;
-        cursor: pointer;
-        padding: 0;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .widgetify-close:hover {
-        color: #374151;
-      }
-
-      .widgetify-watermark {
-        background-color: #f9fafb;
-        border-top: 1px solid #e5e7eb;
-        padding: 8px 12px;
-        text-align: center;
-        margin: 20px -20px -20px -20px;
-        border-radius: 0 0 10px 10px;
-      }
-
-      .widgetify-watermark a {
-        color: #6b7280;
-        text-decoration: none;
-        font-size: 10px;
-        font-weight: 500;
-      }
-
-      .widgetify-watermark a:hover {
-        color: #374151;
-      }
-
-      /* UPI Gateway Specific Styles */
-      .upi-gateway-title {
-        margin: 16px 0 16px 0;
-        color: #1f2937;
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-      }
-
-      .upi-gateway-qr {
-        width: 200px;
-        height: 200px;
-        border: 2px solid #f3f4f6;
-        border-radius: 8px;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .upi-gateway-details {
-        margin: 4px 0;
-        font-size: 14px;
-        color: #374151;
-      }
-
-      .upi-gateway-button {
-        width: 100%;
-        padding: 16px 0;
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
-      }
-
-      .upi-gateway-button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
-      }
-
-      .upi-gateway-note {
-        margin: 16px 0 0 0;
-        font-size: 11px;
-        color: #9ca3af;
-        text-align: center;
-        line-height: 1.4;
-      }
-
-      /* Responsive Mobile Design */
-      @media (max-width: 480px) {
-        .widgetify-widget {
-          bottom: 15px;
-          right: 15px;
-        }
-        
-        .widgetify-popup {
-          bottom: 85px;
-          right: 15px;
-          max-width: calc(100vw - 30px) !important;
-          margin: 0 !important;
-          border-radius: 8px !important;
-          padding: 16px !important;
-        }
-        
-        .upi-gateway-title {
-          font-size: 18px !important;
-        }
-        
-        .upi-gateway-details {
-          font-size: 13px !important;
-        }
-        
-        .upi-gateway-button {
-          padding: 14px 0 !important;
-          font-size: 15px !important;
-        }
-        
-        .upi-gateway-qr {
-          width: 160px !important;
-          height: 160px !important;
-        }
-        
-        .upi-gateway-note {
-          font-size: 11px !important;
-        }
-      }
+      .widgetify-widget { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #000000; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; z-index: 1000; border: none; outline: none; }
+      .widgetify-widget:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+      .widgetify-popup { position: fixed; bottom: 90px; right: 20px; width: 400px; max-width: 90vw; background-color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); display: none; flex-direction: column; z-index: 999; overflow: hidden; border: 1px solid #e5e7eb; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .widgetify-popup.show { display: flex; animation: fadeInUp 0.3s ease; }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .widgetify-header { background-color: #f3f4f6; padding: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; border-radius: 10px 10px 0 0; margin: -20px -20px 0 -20px; }
+      .widgetify-header h3 { margin: 0; font-size: 14px; font-weight: 600; color: #374151; }
+      .widgetify-close { background: none; border: none; font-size: 18px; color: #6b7280; cursor: pointer; padding: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+      .widgetify-close:hover { color: #374151; }
+      .widgetify-watermark { background-color: #f9fafb; border-top: 1px solid #e5e7eb; padding: 8px 12px; text-align: center; margin: 20px -20px -20px -20px; border-radius: 0 0 10px 10px; }
+      .widgetify-watermark a { color: #6b7280; text-decoration: none; font-size: 10px; font-weight: 500; }
+      .widgetify-watermark a:hover { color: #374151; }
+      @media (max-width: 480px) { .widgetify-widget { bottom: 15px; right: 15px; } .widgetify-popup { bottom: 85px; right: 15px; max-width: calc(100vw - 30px) !important; margin: 0 !important; border-radius: 8px !important; padding: 16px !important; } }
     </style>
-  
         <div id="widgetify-whatsapp" class="widgetify-widget" onclick="toggleWidgetifyPopup()" aria-label="Open WhatsApp Chat">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25a6.63 6.63 0 0 1-1.02-3.52 6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z" fill="white"/>
-          </svg>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 6.32A7.85 7.85 0 0 0 12 4.02a7.95 7.95 0 0 0-6.9 12.07L4 20.02l4.05-1.06A8.02 8.02 0 0 0 12 20.02a7.98 7.98 0 0 0 8-7.93c0-2.12-.83-4.12-2.4-5.62V6.32zm-5.6 12.2c-1.18 0-2.33-.32-3.33-.92l-.24-.14-2.47.65.66-2.41-.16-.25A6.63 6.63 0 0 1 5.44 11.93a6.57 6.57 0 0 1 11.29-4.57 6.45 6.45 0 0 1 2 4.55 6.57 6.57 0 0 1-6.57 6.57l-.16.04zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.06-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.24-.02-.34-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33-.11 0-.24-.02-.37-.02-.13 0-.34.05-.52.25-.18.2-.68.67-.68 1.62 0 .96.7 1.88.8 2 .1.14 1.4 2.16 3.42 3.02.48.2.85.33 1.14.43.48.15.91.13 1.26.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.08-.18-.12-.37-.21z" fill="white"/></svg>
         </div>
-
-        <div id="widgetify-popup" class="widgetify-popup" role="dialog" aria-labelledby="chat-title">
-          <div class="widgetify-header">
-            <h3 id="chat-title">WhatsApp Chat</h3>
-            <button class="widgetify-close" onclick="toggleWidgetifyPopup()" aria-label="Close chat">×</button>
-          </div>
-          <div class="widgetify-content">
-            <div style="background-color: #f3f4f6; padding: 8px; border-radius: 8px; margin-bottom: 8px; max-width: 80%;">
-              <p style="margin: 0; font-size: 12px; color: #374151;">Hey there! 👋 How can we help you today?</p>
-            </div>
-          </div>
-          <div style="padding: 12px; border-top: 1px solid #e5e7eb; background-color: #f9fafb; border-radius: 0 0 10px 10px;">
-            <div style="display: flex; gap: 8px;">
-              <input type="text" placeholder="Type a message..." style="flex-grow: 1; font-size: 12px; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; outline: none;">
-              <button onclick="window.open('https://wa.me/9656778508?text=Hey%20there!%20%F0%9F%91%8B%20How%20can%20we%20help%20you%20today%3F')" style="background-color: #000000; color: white; padding: 8px; border: none; border-radius: 6px; cursor: pointer;" aria-label="Send message on WhatsApp">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="widgetify-watermark">
-             <a href="https://widgetifyai.vercel.app/" target="_blank">Powered by Widgetify</a>
-          </div>
-        </div>
-
-        <script>
-          function toggleWidgetifyPopup() {
-            const popup = document.getElementById('widgetify-popup');
-            popup.classList.toggle('show');
-          }
-        </script>
+        <div id="widgetify-popup" class="widgetify-popup" role="dialog" aria-labelledby="chat-title"><div class="widgetify-header"><h3 id="chat-title">WhatsApp Chat</h3><button class="widgetify-close" onclick="toggleWidgetifyPopup()" aria-label="Close chat">×</button></div><div class="widgetify-content"><div style="background-color: #f3f4f6; padding: 8px; border-radius: 8px; margin-bottom: 8px; max-width: 80%;"><p style="margin: 0; font-size: 12px; color: #374151;">Hey there! 👋 How can we help you today?</p></div></div><div style="padding: 12px; border-top: 1px solid #e5e7eb; background-color: #f9fafb; border-radius: 0 0 10px 10px;"><div style="display: flex; gap: 8px;"><input type="text" placeholder="Type a message..." style="flex-grow: 1; font-size: 12px; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; outline: none;"><button onclick="window.open('https://wa.me/9656778508?text=Hey%20there!%20%F0%9F%91%8B%20How%20can%20we%20help%20you%20today%3F')" style="background-color: #000000; color: white; padding: 8px; border: none; border-radius: 6px; cursor: pointer;" aria-label="Send message on WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg></button></div></div><div class="widgetify-watermark"><a href="https://widgetifyai.vercel.app/" target="_blank">Powered by Widgetify</a></div></div>
+        <script>function toggleWidgetifyPopup(){const popup=document.getElementById('widgetify-popup');popup.classList.toggle('show')}</script>
   <footer><div class="wrap footer-inner"><span>© 2026 Ad Web Comic Agency</span><span>MSME-KL-08-0101744</span><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>
